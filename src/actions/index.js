@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -16,7 +16,7 @@ export function signinUser({ email, password }) {
 				// - Save the JWT token
 				localStorage.setItem('token', response.data.token);
 				// - redirect to the route `/feature`
-				browserHistory.push('/feature');
+				BrowserRouter.push('/feature');
 			})
 			.catch(() => {
 				// If request it bad...
@@ -33,7 +33,7 @@ export function signupUser({ email, password }) {
 			.then(response => {
 				dispatch({ type: AUTH_USER });
 				localStorage.setItem('token', response.data.token);
-				browserHistory.push('/feature');
+				BrowserRouter.push('/feature');
 			})
 			.catch(serve => {
 				dispatch(authError(serve.response.data.error));

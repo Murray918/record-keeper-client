@@ -4,7 +4,8 @@ import './styles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import ReactRouter from 'react-router';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 import { AUTH_USER } from './actions/types';
 import App from './components/App';
@@ -27,16 +28,18 @@ if (token) {
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
-			<Route path="/" component={App}>
-				<IndexRoute component={Welcome} />
-				<Route path="signin" component={Signin} />
-				<Route path="signout" component={Signout} />
-				<Route path="signup" component={Signup} />
-				<Route path="feature" component={RequireAuth(Feature)} />
-			</Route>
-		</Router>
+		<BrowserRouter>
+			<App>
+				<Switch>
+					<Route exact path="/" component={Welcome} />
+					<Route path="signin" component={Signin} />
+					<Route path="signout" component={Signout} />
+					<Route path="signup" component={Signup} />
+					<Route path="feature" component={RequireAuth(Feature)} />
+				</Switch>
+			</App>
+		</BrowserRouter>
 	</Provider>,
-	document.querySelector('.container')
+	document.getElementById('root')
 );
 registerServiceWorker();
