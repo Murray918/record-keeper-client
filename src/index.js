@@ -39,3 +39,4 @@ ReactDOM.render(
 	</Provider>,
 	document.querySelector('.container')
 );
+registerServiceWorker();
