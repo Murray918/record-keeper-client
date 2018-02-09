@@ -32,10 +32,10 @@ ReactDOM.render(
 			<App>
 				<Switch>
 					<Route exact path="/" component={Welcome} />
-					<Route path="signin" component={Signin} />
-					<Route path="signout" component={Signout} />
-					<Route path="signup" component={Signup} />
-					<Route path="feature" component={RequireAuth(Feature)} />
+					<Route path="/signin" component={Signin} />
+					<Route path="/signout" component={Signout} />
+					<Route path="/signup" component={Signup} />
+					<Route path="/feature" component={RequireAuth(Feature)} />
 				</Switch>
 			</App>
 		</BrowserRouter>
