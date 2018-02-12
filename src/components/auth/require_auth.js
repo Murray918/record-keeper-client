@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Route, Redirect } from 'react-router-dom'
 
-export default function(ComposedComponent) {
-	class Authentication extends Component {
-		static contextTypes = {
-			router: PropTypes.object
-		};
+export const PrivateRoute = ({component: ComposedComponent, ...rest}) => {
 
-		componentWillMount() {
-			if (!this.props.authenticated) {
-				this.context.router.push('/');
-			}
-		}
+  class Authentication extends Component {
 
-		componentWillUpdate(nextProps) {
-			if (!nextProps.authenticated) {
-				this.context.router.push('/');
-			}
-		}
+    // redirect if not authenticated; otherwise, return the component imputted into <PrivateRoute />
+    handleRender(props) {
+      if (!this.props.authenticated) {
+        return <Redirect to={{
+          pathname: '/signin',
+          state: {
+            from: props.location,
+            message: 'You need to sign in'
+          }
+        }}/>
+      } else {
+        return <ComposedComponent {...props}/>
+      }
+    }
 
-		render() {
-			return <ComposedComponent {...this.props} />;
-		}
-	}
+    render() {
+      return (
+        <Route {...rest} render={this.handleRender.bind(this)}/>
+      )
+    }
+  }
 
-	function mapStateToProps(state) {
-		return { authenticated: state.auth.authenticated };
-	}
+  function mapStateToProps(state) {
+    return {authenticated: state.auth.authenticated};
+  }
 
-	return connect(mapStateToProps)(Authentication);
+  const AuthenticationContainer = connect(mapStateToProps)(Authentication)
+  return <AuthenticationContainer/>
 }

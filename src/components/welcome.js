@@ -1,3 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-export default () => <div>Welcome to our slice of paradise</div>;
+export default () => {
+  return (
+    <div>
+      This is the landing page...
+      sign in to access the secure page
+    </div>
+  )
+}
+

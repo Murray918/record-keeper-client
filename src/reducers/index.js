@@ -1,14 +1,10 @@
-import { combineReducers } from 'redux';
-//with es6 we can rename what we are importing by useing the as operator
-//this is very helplful here because we do not want a reducer named reducer floating around in the index of our reducers
-import { reducer as form } from 'redux-form';
-import auth from './auth_reducer';
-import msg from './message_reducer';
+import { combineReducers } from 'redux'
+import { reducer as form } from 'redux-form'
+import authReducer from './auth_reducer'
 
 const rootReducer = combineReducers({
-	form,
-	auth,
-	msg
-});
+  form,
+  auth: authReducer
+})
 
-export default rootReducer;
+export default rootReducer
