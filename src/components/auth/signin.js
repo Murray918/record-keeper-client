@@ -1,66 +1,55 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { reduxForm, Field, Form } from 'redux-form';
-import * as actions from '../../actions';
-
-const renderInput = field => {
-	const { input, type } = field;
-	return (
-		<div>
-			<input {...input} type={type} className="form-control" />
-		</div>
-	);
-};
+import React, { Component } from 'react'
+import SigninForm from './signin_form'
+import * as actions from '../../actions'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 class Signin extends Component {
-	handleFormSubmit({ email, password }) {
-		console.log(email, password);
 
-		this.props.signinUser({ email, password });
-	}
+  componentWillUnmount() {
+    if (this.props.errorMessage) {
+      this.props.authError(null)
+    }
+  }
 
-	renderAlert() {
-		const { errorMessage } = this.props;
-		if (errorMessage) {
-			return (
-				<div className="alert alert-danger">
-					<strong>Oops!</strong>
-					{errorMessage}
-				</div>
-			);
-		}
-	}
+  displayRedirectMessages() {
+    const location = this.props.location
+    return location.state && <div className="alert alert-danger">{location.state.message}</div>
+  }
 
-	render() {
-		const { handleSubmit } = this.props;
+  handleSubmit({email, password}) {
+    this.props.signinUser({email, password})
+  }
 
-		return (
-			<Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-				<div className="form-group">
-					<label>Email:</label>
-					<Field name="email" type="email" component={renderInput} />
-				</div>
-				<div className="form-group">
-					<label>Password:</label>
-					<Field name="password" type="password" component={renderInput} />
-				</div>
-				{this.renderAlert()}
-				<button action="submit" className="btn btn-primary">
-					Sign in
-				</button>
-			</Form>
-		);
-	}
+  getRedirectPath() {
+    const locationState = this.props.location.state
+    if (locationState && locationState.from.pathname) {
+      return locationState.from.pathname // redirects to referring url
+    } else {
+      return '/'
+    }
+  }
+
+  render() {
+    return (this.props.authenticated) ?
+      <Redirect to={{
+        pathname: this.getRedirectPath(), state: {
+          from: this.props.location
+        }
+      }}/>
+      :
+      <div>
+        {this.displayRedirectMessages()}
+        <SigninForm onSubmit={this.handleSubmit.bind(this)} errorMessage={this.props.errorMessage}/>
+      </div>
+  }
 }
 
 function mapStateToProps(state) {
-	return {
-		// form: state.form,
-		errorMessage: state.auth.error
-	};
+  return {
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error
+  }
 }
 
-Signin = reduxForm({
-	form: 'signin'
-})(Signin);
-export default connect(mapStateToProps, actions)(Signin);
+export default connect(mapStateToProps, actions)(Signin)
