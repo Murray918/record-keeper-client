@@ -54,13 +54,14 @@ export function authError(error) {
 export function fetchMessage() {
 	return function(dispatch) {
 		axios
-			.get(ROOT_URL, {
+			.get(`${ROOT_URL}/spotify/album/Bitches%20Brew`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
+				console.log(response.data);
 				dispatch({
 					type: FETCH_DATA,
-					payload: response.data.message
+					payload: response.data
 				});
 			});
 	};

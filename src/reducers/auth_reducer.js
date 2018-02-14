@@ -14,7 +14,7 @@ export default function authReducer(state = {}, action) {
 		case AUTH_ERROR:
 			return { ...state, error: action.payload };
 		case FETCH_DATA:
-			return { ...state, data: action.payload };
+			return { ...state, message: action.payload };
 		default:
 			return state;
 	}

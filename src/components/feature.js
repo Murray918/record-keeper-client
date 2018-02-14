@@ -9,10 +9,21 @@ class Feature extends Component {
 	}
 
 	render() {
+		console.log(this.props.message);
+		// const data = this.props.message.map((album, key) => {
+		// 	return (
+		// 		<div>
+		// 			<p>{album.artist}</p>
+		// 			<p>{album.title}</p>
+		// 			<p>{album.id}</p>
+		// 		</div>
+		// 	);
+		// });
+
 		return (
-			<div>
+			<div id="Feature" className="container">
 				this is our secure message
-				<p>{this.props.data}</p>
+				<div>shoot</div>
 				<p>
 					<Link to={'/signin'}>/signin</Link>
 				</p>{' '}

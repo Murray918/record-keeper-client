@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default () => {
-  return (
-    <div>
-      This is the landing page...
-      sign in to access the secure page
-    </div>
-  )
-}
-
+	return (
+		<div className="container">
+			This is the landing page... sign in to access the secure page
+		</div>
+	);
+};
