@@ -12,7 +12,7 @@ class Feature extends Component {
 		return (
 			<div>
 				this is our secure message
-				<p>{this.props.message}</p>
+				<p>{this.props.data}</p>
 				<p>
 					<Link to={'/signin'}>/signin</Link>
 				</p>{' '}
