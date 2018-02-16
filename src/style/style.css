@@ -1,3 +1,14 @@
 .error {
-    color: red;
+	color: red;
+}
+#landing {
+	width: 1200px;
+}
+
+#landing-image {
+	width: 1200px;
+	padding-top: 3em;
+}
+#home {
+	margin-left: 10em;
 }

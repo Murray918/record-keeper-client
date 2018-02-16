@@ -15,6 +15,7 @@ import { PrivateRoute } from './components/auth/require_auth';
 import Feature from './components/feature';
 import reducers from './reducers';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './style/style.css';
 
 // Needed for onTouchTap with material-ui
 // http://stackoverflow.com/a/34015469/988941

@@ -13,7 +13,7 @@ class Header extends Component {
 				</li>,
 				<li key={2} className="nav-item">
 					<Link className="nav-link" to="/feature">
-						Protected Site
+						Search Records
 					</Link>
 				</li>
 			];
@@ -31,7 +31,7 @@ class Header extends Component {
 				</li>,
 				<li key={3} className="nav-item">
 					<Link className="nav-link" to="/feature">
-						Protected Site
+						Search Records
 					</Link>
 				</li>
 			];
@@ -40,9 +40,9 @@ class Header extends Component {
 
 	render() {
 		return (
-			<div id="Nav">
-				<nav className="navbar navbar-light">
-					<Link to="/" className="navbar-brand">
+			<div>
+				<nav id="Nav" className="navbar navbar-light">
+					<Link to="/" id="home" className="navbar-brand">
 						Home
 					</Link>
 					<ul className="nav navbar-nav">{this.renderLinks()}</ul>

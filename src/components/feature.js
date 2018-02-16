@@ -2,14 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
+import AlbumList from './albumList';
 
 class Feature extends Component {
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchMessage();
 	}
 
 	render() {
 		console.log(this.props.message);
+		console.log(this.props);
+		if (this.props.message === undefined) {
+			return (
+				<div>
+					<h1>LOADING</h1>
+				</div>
+			);
+		}
 		// const data = this.props.message.map((album, key) => {
 		// 	return (
 		// 		<div>
@@ -23,7 +32,7 @@ class Feature extends Component {
 		return (
 			<div id="Feature" className="container">
 				this is our secure message
-				<div>shoot</div>
+				<AlbumList message={this.props.message} />
 				<p>
 					<Link to={'/signin'}>/signin</Link>
 				</p>{' '}
