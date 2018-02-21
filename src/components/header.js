@@ -6,33 +6,23 @@ class Header extends Component {
 	renderLinks() {
 		if (this.props.authenticated) {
 			return [
-				<li key={1} className="nav-item">
-					<Link className="nav-link" to="/signout">
-						Sign Out
-					</Link>
+				<li key={1} className="two columns ">
+					<Link to="/signout">Sign Out</Link>
 				</li>,
-				<li key={2} className="nav-item">
-					<Link className="nav-link" to="/feature">
-						Search Records
-					</Link>
+				<li key={2} className="two columns">
+					<Link to="/feature">Search Records</Link>
 				</li>
 			];
 		} else {
 			return [
-				<li key={1} className="nav-item">
-					<Link className="nav-link" to="/signin">
-						Sign In
-					</Link>
+				<li key={1} className="two columns">
+					<Link to="/signin">Sign In</Link>
 				</li>,
-				<li key={2} className="nav-item">
-					<Link className="nav-link" to="/signup">
-						Sign Up
-					</Link>
+				<li key={2} className="two columns">
+					<Link to="/signup">Sign Up</Link>
 				</li>,
-				<li key={3} className="nav-item">
-					<Link className="nav-link" to="/feature">
-						Search Records
-					</Link>
+				<li key={3} className="two columns">
+					<Link to="/feature">Search Records</Link>
 				</li>
 			];
 		}
@@ -41,11 +31,15 @@ class Header extends Component {
 	render() {
 		return (
 			<div>
-				<nav id="Nav" className="navbar navbar-light">
-					<Link to="/" id="home" className="navbar-brand">
-						Home
-					</Link>
-					<ul className="nav navbar-nav">{this.renderLinks()}</ul>
+				<nav id="Nav" className="row">
+					<ul className="ten">
+						<li>
+							<Link className="two columns" to="/" id="home">
+								Home
+							</Link>
+						</li>
+						{this.renderLinks()}
+					</ul>
 				</nav>
 			</div>
 		);

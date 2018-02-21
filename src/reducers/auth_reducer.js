@@ -2,7 +2,9 @@ import {
 	AUTH_USER,
 	UNAUTH_USER,
 	AUTH_ERROR,
-	FETCH_DATA
+	FETCH_DATA,
+	LOADING,
+	SEARCH
 } from '../actions/types';
 
 export default function authReducer(state = {}, action) {
@@ -14,7 +16,11 @@ export default function authReducer(state = {}, action) {
 		case AUTH_ERROR:
 			return { ...state, error: action.payload };
 		case FETCH_DATA:
-			return { ...state, message: action.payload };
+			return { ...state, message: action.payload, loading: true };
+		case LOADING:
+			return { ...state, loading: true, search: false };
+		case SEARCH:
+			return { ...state, search: true, loading: false };
 		default:
 			return state;
 	}

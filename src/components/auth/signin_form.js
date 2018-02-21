@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { renderTextField } from './form_helpers';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class SigninForm extends Component {
 	renderAlert() {
 		if (this.props.errorMessage) {
 			return (
-				<div className="alert alert-danger">
+				<div className="alert alert-danger center">
 					<strong>Oops: </strong>
 					{this.props.errorMessage}
 				</div>
@@ -16,32 +14,36 @@ class SigninForm extends Component {
 	}
 
 	render() {
-		const { handleSubmit } = this.props;
+		const { handleSubmit, pristine, submitting } = this.props;
 
 		return (
-			<div id="SigninForem" className="container">
+			<div id="SigninForm" className="container sign-in-up">
 				{this.renderAlert()}
-				<form onSubmit={handleSubmit}>
-					<Field
-						label="Username"
-						name="email"
-						component={renderTextField}
-						type="text"
-					/>
+				<form onSubmit={handleSubmit} className="row center">
+					<div className="center">
+						<Field
+							label="Username"
+							name="email"
+							component="input"
+							type="text"
+							placeholder=" Enter Email"
+						/>
+					</div>
+					<div className="center">
+						<Field
+							label="Password"
+							name="password"
+							component="input"
+							type="password"
+							placeholder="Enter Password"
+						/>
+					</div>
 
-					<Field
-						label="Password"
-						name="password"
-						component={renderTextField}
-						type="password"
-					/>
-
-					<RaisedButton
-						type="submit"
-						label="Sign In"
-						primary={true}
-						labelColor={'#FFFFFF'}
-					/>
+					<div className="center center-btn">
+						<button type="submit" disabled={pristine || submitting}>
+							Sign IN
+						</button>
+					</div>
 				</form>
 			</div>
 		);

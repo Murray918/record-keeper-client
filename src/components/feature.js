@@ -3,42 +3,27 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 import AlbumList from './albumList';
+import Search from './search';
+import Loading from './loading';
 
 class Feature extends Component {
 	componentDidMount() {
-		this.props.fetchMessage();
+		this.props.fetchData();
 	}
 
 	render() {
-		console.log(this.props.message);
-		console.log(this.props);
-		if (this.props.message === undefined) {
+		if (this.props.message === undefined || null || '') {
 			return (
-				<div>
-					<h1>LOADING</h1>
+				<div id="Feature" className="container">
+					<Search />
+					<Loading />
 				</div>
 			);
 		}
-		// const data = this.props.message.map((album, key) => {
-		// 	return (
-		// 		<div>
-		// 			<p>{album.artist}</p>
-		// 			<p>{album.title}</p>
-		// 			<p>{album.id}</p>
-		// 		</div>
-		// 	);
-		// });
-
 		return (
 			<div id="Feature" className="container">
-				this is our secure message
+				<Search />
 				<AlbumList message={this.props.message} />
-				<p>
-					<Link to={'/signin'}>/signin</Link>
-				</p>{' '}
-				<p>
-					<Link to={'/signup'}>/signup</Link>
-				</p>
 			</div>
 		);
 	}

@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_DATA } from './types';
+import {
+	UNAUTH_USER,
+	AUTH_USER,
+	AUTH_ERROR,
+	FETCH_DATA,
+	LOADING,
+	SEARCH
+} from './types';
+//localhost url
 const ROOT_URL = 'http://localhost:3090';
 
 export function signinUser({ email, password }) {
@@ -51,7 +59,7 @@ export function authError(error) {
 	};
 }
 
-export function fetchMessage() {
+export function fetchData() {
 	return function(dispatch) {
 		axios
 			.get(`${ROOT_URL}/spotify/album/Bitches%20Brew`, {
@@ -64,5 +72,17 @@ export function fetchMessage() {
 					payload: response.data
 				});
 			});
+	};
+}
+//TODO let redux know our data is loading
+export function isLoading() {
+	return {
+		type: LOADING
+	};
+}
+//TODO get data from spotify api dynamically
+export function search() {
+	return {
+		type: SEARCH
 	};
 }

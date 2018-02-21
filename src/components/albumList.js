@@ -8,22 +8,28 @@ class AlbumList extends Component {
 		console.log(this.props);
 		const albums = this.props.message.map((albums, key) => {
 			return (
-				<div key={key}>
-					<p>{albums.artist}</p>
+				<div key={key} className=" album-container columns five u-max-full-">
+					<h4 className="text-center">{albums.artist}</h4>
+					<h6>{albums.title}</h6>
 					<img
-						className="album-image-large"
+						className="u-max-full"
 						alt="album artwok here"
-						src={albums.imageLarge}
+						src={albums.imageMedium}
 					/>
+					<button className="u-pull-right">Add</button>
 				</div>
 			);
 		});
 		// }
 		return (
-			<div className="container" id="AlbumList">
-				{albums}
+			<div className="container">
+				<div className=" center u-full-width" id="AlbumList">
+					<hr className="u-full-width" />
+					{albums}
+				</div>
 			</div>
 		);
 	}
 }
+
 export default connect(null, actions)(AlbumList);
