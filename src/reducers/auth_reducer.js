@@ -16,11 +16,9 @@ export default function authReducer(state = {}, action) {
 		case AUTH_ERROR:
 			return { ...state, error: action.payload };
 		case FETCH_DATA:
-			return { ...state, message: action.payload, loading: true };
-		case LOADING:
-			return { ...state, loading: true, search: false };
+			return { ...state, message: action.payload };
 		case SEARCH:
-			return { ...state, search: true, loading: false };
+			return { ...state, search: true };
 		default:
 			return state;
 	}

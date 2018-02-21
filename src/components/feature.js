@@ -11,6 +11,11 @@ class Feature extends Component {
 		this.props.fetchData();
 	}
 
+	handleAddRecord({ albums }) {
+		let user = localStorage.getItem('user');
+		this.props.addRecord({ albums, user });
+	}
+
 	render() {
 		if (this.props.message === undefined || null || '') {
 			return (

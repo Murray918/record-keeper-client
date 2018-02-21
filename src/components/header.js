@@ -11,6 +11,9 @@ class Header extends Component {
 				</li>,
 				<li key={2} className="two columns">
 					<Link to="/feature">Search Records</Link>
+				</li>,
+				<li key={3} className="two columns u-pull-right">
+					<Link to="/feature">{this.props.user}</Link>
 				</li>
 			];
 		} else {
@@ -29,6 +32,7 @@ class Header extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div>
 				<nav id="Nav" className="row">
@@ -48,7 +52,8 @@ class Header extends Component {
 
 function mapStateToProps(state) {
 	return {
-		authenticated: state.auth.authenticated
+		authenticated: state.auth.authenticated,
+		user: state.auth.user
 	};
 }
 

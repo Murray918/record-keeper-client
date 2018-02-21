@@ -19,9 +19,11 @@ import Feature from './components/feature';
 import './style/style.css';
 import './style/skeleton.css';
 import './style/normalize.css';
-
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers);
+import { composeWithDevTools } from 'redux-devtools-extension';
+const store = createStore(
+	reducers,
+	composeWithDevTools(applyMiddleware(reduxThunk))
+);
 const token = localStorage.getItem('token');
 
 if (token) {

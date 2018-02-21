@@ -4,3 +4,4 @@ export const AUTH_ERROR = 'auth_error';
 export const FETCH_DATA = 'fetch_data';
 export const SEARCH = 'search';
 export const LOADING = 'loading';
+export const ADD_RECORD = 'add_record';
