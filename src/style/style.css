@@ -2,17 +2,46 @@
 	color: red;
 }
 #landing {
-	width: 1200px;
 }
 
 #landing-image {
-	width: 1200px;
+	width: auto;
+	max-height: 600px;
 	padding-top: 3em;
 }
 #home {
 	margin-left: 10em;
 }
+/* remove this when in mobile phone */
+.center {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+.center-btn {
+	padding-left: 45px;
+}
 
-.col-4 {
-	margin-right: 10%;
+#Nav ul,
+li {
+	list-style: none;
+	margin: 0;
+}
+
+.sign-in-up {
+	padding-top: 13%;
+	margin-top: 12rem;
+	height: 550px;
+	background-image: url('../components/images/kara-michelle-554236-unsplash.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center;
+	background-size: cover;
+}
+
+.search-top {
+	margin-left: 2em;
+}
+.album-container {
+	padding-left: 2.5em;
 }
