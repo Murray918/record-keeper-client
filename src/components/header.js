@@ -13,7 +13,7 @@ class Header extends Component {
 					<Link to="/feature">Search Records</Link>
 				</li>,
 				<li key={3} className="two columns u-pull-right">
-					<Link to="/feature">{this.props.user}</Link>
+					<Link to="/feature">{localStorage.getItem('user')}</Link>
 				</li>
 			];
 		} else {

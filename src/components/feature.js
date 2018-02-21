@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Link } from 'react-router-dom';
 import AlbumList from './albumList';
 import Search from './search';
 import Loading from './loading';
 
 class Feature extends Component {
 	componentDidMount() {
-		this.props.fetchData();
+		console.log(this.props);
+		// this.props.fetchData();
 	}
 
-	handleAddRecord({ albums }) {
-		let user = localStorage.getItem('user');
-		this.props.addRecord({ albums, user });
+	handleSubmit({ value, query }) {
+		console.log('this is the type: ', value, ' and this is the query :', query);
+		this.props.search({ value, query });
 	}
 
 	render() {
-		if (this.props.message === undefined || null || '') {
+		if (this.props.searchResults === undefined || null || '') {
 			return (
 				<div id="Feature" className="container">
-					<Search />
+					<Search onSubmit={this.handleSubmit.bind(this)} />
 					<Loading />
 				</div>
 			);
 		}
 		return (
 			<div id="Feature" className="container">
-				<Search />
-				<AlbumList message={this.props.message} />
+				<Search onSubmit={this.handleSubmit.bind(this)} />
+				<AlbumList searchResults={this.props.searchResults} />
 			</div>
 		);
 	}
@@ -36,7 +36,7 @@ class Feature extends Component {
 
 function mapStateToProps(state) {
 	return {
-		message: state.auth.message
+		searchResults: state.records.searchResults
 	};
 }
 

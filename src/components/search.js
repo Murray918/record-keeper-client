@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 const Search = props => {
@@ -9,10 +9,7 @@ const Search = props => {
 			<form className="twelve" onSubmit={handleSubmit}>
 				<div className="row center">
 					<div className=" columns three">
-						<Field
-							name="favoriteColor"
-							className="u-full-width"
-							component="select">
+						<Field name="value" className="u-full-width" component="select">
 							<option>Type</option>
 							<option value="album">album</option>
 							<option value="artist">artist</option>
@@ -23,7 +20,7 @@ const Search = props => {
             ">
 						<Field
 							className="u-full-width"
-							name="email"
+							name="query"
 							component="input"
 							type="text"
 							placeholder="Search"

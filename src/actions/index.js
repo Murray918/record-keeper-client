@@ -49,8 +49,7 @@ export function signupUser({ email, password, passwordConfirmation }) {
 			.post(`${ROOT_URL}/signup`, { email, password, passwordConfirmation })
 			.then(response => {
 				dispatch({
-					type: AUTH_USER,
-					payload: email
+					type: AUTH_USER
 				});
 
 				localStorage.setItem('token', response.data.token);
@@ -84,24 +83,53 @@ export function fetchData() {
 			});
 	};
 }
-//TODO let redux know our data is loading
-export function isLoading() {
-	return {
-		type: LOADING
-	};
-}
+
 //TODO get data from spotify api dynamically
-export function search() {
-	return {
-		type: SEARCH
+export function search(value) {
+	console.log(
+		'this is the type: ',
+		value.value,
+		' and this is the query :',
+		value.query,
+		'2'
+	);
+	return function(dispatch) {
+		axios
+			.get(`${ROOT_URL}/spotify/${value.value}/${value.query}`, {
+				headers: { authorization: localStorage.getItem('token') }
+			})
+			.then(response => {
+				console.log(response.data);
+				dispatch({
+					type: SEARCH,
+					payload: response.data
+				});
+			});
 	};
 }
 
 //TODO add record to the database
-export function addRecord() {
-	//we need to have a fetch with our auth and our record to add and a user email
-	console.log(AUTH_USER);
-	// dispatch({
-	// 	type: ADD_RECORD
-	// });
+export function addRecord(album) {
+	return function(dispatch) {
+		let postData = {
+			email: localStorage.getItem('user'),
+			album: album
+		};
+
+		axios
+			.post(`${ROOT_URL}/addrecord`, postData, {
+				headers: {
+					authorization: localStorage.getItem('token')
+				}
+			})
+			.then(response => {
+				console.log(response);
+			});
+		//we need to have a fetch with our auth and our record to add and a user email
+		console.log(album);
+		dispatch({
+			type: ADD_RECORD,
+			payload: album
+		});
+	};
 }
