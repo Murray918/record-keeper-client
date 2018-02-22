@@ -7,16 +7,16 @@ const Search = props => {
 	return (
 		<div id="Search">
 			<form className="twelve" onSubmit={handleSubmit}>
-				<div className="row center">
-					<div className=" columns three">
+				<div className="row">
+					{/* <div className=" columns three">
 						<Field name="value" className="u-full-width" component="select">
 							<option>Type</option>
 							<option value="album">album</option>
 							<option value="artist">artist</option>
 							<option value="song">song</option>
 						</Field>
-					</div>
-					<div className=" columns nine u u-pull-right
+					</div> */}
+					<div id="search-bar" className="columns twelve
             ">
 						<Field
 							className="u-full-width"
@@ -26,19 +26,13 @@ const Search = props => {
 							placeholder="Search"
 						/>
 					</div>
-					<div className="row columns twelve ">
+					<div className="row center">
 						<button
-							className="columns five"
+							id="search-btn"
+							className="button-primary:focus"
 							type="submit"
 							disabled={pristine || submitting}>
-							Submit
-						</button>
-						<button
-							className="columns five u-pull-right"
-							type="button"
-							disabled={pristine || submitting}
-							onClick={reset}>
-							Clear Values
+							SEARCH
 						</button>
 					</div>
 				</div>

@@ -45,6 +45,7 @@ class Header extends Component {
 						{this.renderLinks()}
 					</ul>
 				</nav>
+				<div>{this.props.children}</div>
 			</div>
 		);
 	}
