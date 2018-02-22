@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import * as actions from '../actions';
-import { connect } from 'react-redux';
 
-class AlbumList extends Component {
+export default class AlbumList extends Component {
 	handleAddRecord(targetAlbum) {
 		let album = this.props.searchResults[targetAlbum.target.id];
-		// console.log(album);
 		this.props.addRecord(album);
 	}
 
 	render() {
-		console.log(this.props.searchResults);
-		console.log(this.props);
 		const albums = this.props.searchResults.map((album, key) => {
 			return (
 				<div key={key} className=" album-container columns five u-max-full-">
@@ -42,5 +38,3 @@ class AlbumList extends Component {
 		);
 	}
 }
-
-export default connect(null, actions)(AlbumList);
