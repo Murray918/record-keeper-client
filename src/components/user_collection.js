@@ -18,6 +18,7 @@ class UserCollection extends Component {
 
 	render() {
 		const collection = this.props.userCollection.map((record, key) => {
+			console.log(record);
 			return (
 				<div key={key} className=" columns five u-max-full-">
 					<h4 className="text-center">{record.artist}</h4>

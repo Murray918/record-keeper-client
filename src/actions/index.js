@@ -132,7 +132,7 @@ export function removeRecord(record) {
 	return function(dispatch) {
 		let postData = {
 			email: localStorage.getItem('user'),
-			id: record.id
+			id: record._id
 		};
 
 		axios
