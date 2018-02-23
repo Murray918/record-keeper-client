@@ -4,6 +4,7 @@ import * as actions from '../actions';
 import AlbumList from './albumList';
 import SearchForm from './search_form';
 import Loading from './loading';
+import UserCollection from './user_collection';
 
 class User extends Component {
 	componentDidMount() {
@@ -20,8 +21,8 @@ class User extends Component {
 			);
 		}
 		return (
-			<div id="Search" className="container">
-				<UserAlbumList searchResults={this.props.searchResults} />
+			<div id="UserCollection" className="container">
+				<UserCollection userCollection={this.props.userCollection} />
 			</div>
 		);
 	}
@@ -29,8 +30,8 @@ class User extends Component {
 
 function mapStateToProps(state) {
 	return {
-		searchResults: state.records.searchResults
+		userCollection: state.records.userCollection
 	};
 }
 
-export default connect(mapStateToProps, actions)(Search);
+export default connect(mapStateToProps, actions)(User);

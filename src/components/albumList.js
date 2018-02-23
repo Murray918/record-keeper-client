@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as actions from '../actions';
+import { connect } from 'react-redux';
 
-export default class AlbumList extends Component {
+class AlbumList extends Component {
 	handleAddRecord(targetAlbum) {
 		let album = this.props.searchResults[targetAlbum.target.id];
 		this.props.addRecord(album);
@@ -38,3 +39,4 @@ export default class AlbumList extends Component {
 		);
 	}
 }
+export default connect(null, actions)(AlbumList);
