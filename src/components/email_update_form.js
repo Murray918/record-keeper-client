@@ -1,7 +1,7 @@
 import React { Component } from 'react'
 import { reduxForm, Feild } from 'redux-form'
 
-class EmailUpdate extends Component {
+class EmailUpdateForm extends Component {
   render() {
     return (
       <div className = 'container center'>
