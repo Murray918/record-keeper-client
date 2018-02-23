@@ -12,6 +12,10 @@ class User extends Component {
 		console.log(this.props);
 	}
 
+	handleRemoveRecord() {
+		console.log('you clicked me ');
+	}
+
 	render() {
 		if (this.props.userCollection === undefined || null || '') {
 			return (

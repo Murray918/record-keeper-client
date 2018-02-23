@@ -9,6 +9,13 @@ class UserCollection extends Component {
 			this.props
 		);
 	}
+
+	handleAddRecord(targetRecord) {
+		let record = this.props.searchResults[targetRecord.target.id];
+		this.props.remocveRecord(record);
+		console.log('clicked');
+	}
+
 	render() {
 		const collection = this.props.userCollection.map((record, key) => {
 			return (
@@ -22,7 +29,7 @@ class UserCollection extends Component {
 					/>
 					<button
 						id={key}
-						onClick={console.log('you clicked me')}
+						onClick={this.handleRemoveRecord.bind(this)}
 						type="click"
 						className="u-pull-right">
 						remove
