@@ -3,17 +3,28 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class UserCollection extends Component {
-	componentDidMount() {
-		console.log(
-			'this is in side our collection where the map goes:',
-			this.props
-		);
+	componentWillMount() {
+		if (this.props.removedMessage) {
+			this.props.removedMessage = null;
+		}
+	}
+
+	renderRemoveMessage() {
+		if (this.props.removedMessage) {
+			return (
+				<div className="alert alert-success center">
+					<strong>SUCCESS: </strong>
+					{this.props.removedMessage}
+				</div>
+			);
+		}
 	}
 
 	handleRemoveRecord(targetRecord) {
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
 		console.log('clicked');
+		// targetRecord.target renderRmoveMessage
 	}
 
 	render() {
@@ -42,4 +53,8 @@ class UserCollection extends Component {
 	}
 }
 
-export default connect(null, actions)(UserCollection);
+function mapStateToProps(state) {
+	removedMessage: state.records.removedMessage;
+}
+
+export default connect(mapStateToProps, actions)(UserCollection);

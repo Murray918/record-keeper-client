@@ -17,7 +17,7 @@ class SigninForm extends Component {
 		const { handleSubmit, pristine, submitting } = this.props;
 
 		return (
-			<div id="SigninForm" className="container sign-in-up">
+			<div id="SigninForm" className="container center sign-in-up">
 				{this.renderAlert()}
 				<form onSubmit={handleSubmit} className="row center">
 					<div className="center">
