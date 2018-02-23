@@ -10,7 +10,7 @@ export default function recordReducer(state = {}, action) {
 		case ADD_RECORD:
 			return { ...state, album: action.payload };
 		case REMOVE_RECORD:
-			return { ...state, album: action.payload };
+			return { ...state, removedMessage: action.payload };
 		case SEARCH:
 			return { ...state, searchResults: action.payload };
 		case VIEW_USER_COLLECTION:
