@@ -15,8 +15,10 @@ import Signout from './components/auth/signout';
 import Signup from './components/auth/signup';
 import Search from './components/search';
 import User from './components/user';
+import UpdateUser from './components/update_user';
 import { PrivateSearchRoute } from './components/auth/require_auth_search';
 import { PrivateUserRoute } from './components/auth/require_auth_user';
+import { PrivateUpdateRoute } from './components/auth/require_auth_update';
 //styling and css
 import './style/style.css';
 import './style/skeleton.css';
@@ -42,7 +44,8 @@ ReactDOM.render(
 					<Route path="/signout" component={Signout} />
 					<Route path="/signup" component={Signup} />
 					<PrivateSearchRoute path="/Search" component={Search} />
-					<PrivateUserRoute path="/User" component={User} />
+					<PrivateUserRoute path="/user" component={User} />
+					<PrivateUpdateRoute path="/updateuser" component={UpdateUser} />
 				</Header>
 			</Switch>
 		</Router>
