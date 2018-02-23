@@ -184,11 +184,12 @@ html {
 }
 body {
 	font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+	background-color: #f8f9fc;
 	line-height: 1.6;
 	font-weight: 400;
 	font-family: 'Raleway', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial,
 		sans-serif;
-	color: #534b3a;
+	color: #001b52;
 }
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -262,7 +263,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-	color: #1eaedb;
+	color: #001b52;
 }
 a:hover {
 	color: #0fa0ce;
@@ -278,7 +279,7 @@ input[type='button'] {
 	display: inline-block;
 	height: 38px;
 	padding: 0 30px;
-	color: #555;
+	color: #001b52;
 	text-align: center;
 	font-size: 11px;
 	font-weight: 600;
@@ -289,7 +290,7 @@ input[type='button'] {
 	white-space: nowrap;
 	background-color: transparent;
 	border-radius: 4px;
-	border: 1px solid #bbb;
+	border: 1px solid #001b52;
 	cursor: pointer;
 	box-sizing: border-box;
 }
@@ -505,7 +506,7 @@ hr {
 	margin-top: 3rem;
 	margin-bottom: 3.5rem;
 	border-width: 0;
-	border-top: 1px solid #cfc6b0;
+	border-top: 1px solid #001b52;
 }
 
 /* Clearing

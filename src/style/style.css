@@ -4,15 +4,30 @@
 #landing {
 }
 
+#root {
+	color: black;
+}
+
 #landing-image {
 	width: auto;
 	max-height: 600px;
 	padding-top: 3em;
 }
+
+#search-bar {
+	margin-bottom: 2em;
+}
+
+#search-btn {
+	min-width: 4em;
+	text-align: center;
+	background-color: #f78e80;
+	border: none;
+}
+
 #home {
 	margin-left: 10em;
 }
-/* remove this when in mobile phone */
 .center {
 	margin: auto;
 	width: 50%;
@@ -43,5 +58,20 @@ li {
 	margin-left: 2em;
 }
 .album-container {
-	padding-left: 2.5em;
+	background-color: white;
+	margin-bottom: 2em;
+	min-width: 250px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+}
+
+.album-container img {
+	max-width: 85%;
+}
+
+.album-container button {
+	max-height: 2.5em;
+	max-width: 3.5em;
+	margin: 1em;
+	text-align: left;
 }

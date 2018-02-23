@@ -6,7 +6,9 @@ import {
 	FETCH_DATA,
 	LOADING,
 	SEARCH,
-	ADD_RECORD
+	ADD_RECORD,
+	REMOVE_RECORD,
+	VIEW_USER_COLLECTION
 } from './types';
 //localhost url
 const ROOT_URL = 'http://localhost:3090';
@@ -95,7 +97,7 @@ export function search(value) {
 	);
 	return function(dispatch) {
 		axios
-			.get(`${ROOT_URL}/spotify/${value.value}/${value.query}`, {
+			.get(`${ROOT_URL}/spotify/album/${value.query}`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -103,6 +105,46 @@ export function search(value) {
 				dispatch({
 					type: SEARCH,
 					payload: response.data
+				});
+			});
+	};
+}
+
+export function viewUserCollection() {
+	return function(dispatch) {
+		let email = localStorage.getItem('user');
+
+		axios
+			.get(`${ROOT_URL}/viewrecords/${email}`, {
+				headers: { authorization: localStorage.getItem('token') }
+			})
+			.then(response => {
+				console.log(response.data);
+				dispatch({
+					type: VIEW_USER_COLLECTION,
+					payload: response.data
+				});
+			});
+	};
+}
+
+export function removeRecord(record) {
+	return function(dispatch) {
+		let postData = {
+			email: localStorage.getItem('user'),
+			id: record.id
+		};
+
+		axios
+			.post(`${ROOT_URL}/removerecord`, postData, {
+				headers: {
+					authorization: localStorage.getItem('token')
+				}
+			})
+			.then(response => {
+				console.log(response);
+				dispatch({
+					type: REMOVE_RECORD
 				});
 			});
 	};

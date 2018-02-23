@@ -10,9 +10,9 @@ class UserCollection extends Component {
 		);
 	}
 
-	handleAddRecord(targetRecord) {
-		let record = this.props.searchResults[targetRecord.target.id];
-		this.props.remocveRecord(record);
+	handleRemoveRecord(targetRecord) {
+		let record = this.props.userCollection[targetRecord.target.id];
+		this.props.removeRecord(record);
 		console.log('clicked');
 	}
 
