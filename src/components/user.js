@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import AlbumList from './albumList';
-import SearchForm from './search_form';
 import Loading from './loading';
 import UserCollection from './user_collection';
 

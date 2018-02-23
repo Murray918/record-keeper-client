@@ -4,11 +4,14 @@ import {
 	AUTH_USER,
 	AUTH_ERROR,
 	FETCH_DATA,
-	LOADING,
 	SEARCH,
 	ADD_RECORD,
 	REMOVE_RECORD,
-	VIEW_USER_COLLECTION
+	VIEW_USER_COLLECTION,
+	CHANGE_PASSWORD,
+	CHANGE_EMAIL,
+	EMAIL_COMPONENT,
+	PASSWORD_COMPONENT
 } from './types';
 //localhost url
 const ROOT_URL = 'http://localhost:3090';
@@ -37,6 +40,18 @@ export function signinUser({ email, password }) {
 	};
 }
 
+export function renderEmailForm() {
+	return {
+		type: EMAIL_COMPONENT
+	};
+}
+
+export function renderPasswordForm() {
+	return {
+		type: PASSWORD_COMPONENT
+	};
+}
+
 export function signoutUser() {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user');
@@ -44,6 +59,44 @@ export function signoutUser() {
 		type: UNAUTH_USER
 	};
 }
+
+export function changePassword({ email, password }) {
+	return function(dispatch) {
+		let postData = {
+			email: localStorage.getItem('user'),
+			password: password
+		};
+		axios
+			.post(`${ROOT_URL}/updateuserpassword`, postData, {
+				headers: localStorage.getItem('token')
+			})
+			.then(response => {
+				console.log('this is the update pass res :', response.data);
+				dispatch({
+					type: CHANGE_PASSWORD,
+					payload: response.data
+				});
+			});
+	};
+}
+
+export function changeEmail({ email }) {
+	return function(dispatch) {
+		axios
+			.post(`${ROOT_URL}/updateuseremail`, email, {
+				headers: localStorage.getItem('token')
+			})
+			.then(response => {
+				console.log('thes is the update email res :', response.data);
+				dispatch({
+					type: CHANGE_EMAIL,
+					payload: response.data
+				});
+			});
+	};
+}
+
+// export function
 
 export function signupUser({ email, password, passwordConfirmation }) {
 	return function(dispatch) {

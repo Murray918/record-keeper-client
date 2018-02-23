@@ -6,3 +6,7 @@ export const SEARCH = 'search';
 export const ADD_RECORD = 'add_record';
 export const REMOVE_RECORD = 'remove_record';
 export const VIEW_USER_COLLECTION = 'view_user_collection';
+export const CHANGE_EMAIL = 'change_email';
+export const CHANGE_PASSWORD = 'change_password';
+export const EMAIL_COMPONENT = 'email_component';
+export const PASSWORD_COMPONENT = 'password_component';

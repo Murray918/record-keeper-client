@@ -3,7 +3,6 @@ import {
 	UNAUTH_USER,
 	AUTH_ERROR,
 	FETCH_DATA,
-	LOADING,
 	SEARCH
 } from '../actions/types';
 
