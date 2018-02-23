@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import import { reduxForm, Field } from 'redux-form';
 
 
-class UserForm extends Component {
+class PasswordUpdateForm extends Component {
   render (){
     return (
       <div className = 'container center'>
-        here is where our form goes
+        <a>See My Record Collection</a>
+        <h1>Please Provide A New Password</h1>
         <form>
           <div className="center">
             <Field
@@ -52,6 +53,6 @@ const validate = values => {
 };
 
 export default reduxForm({
-	form: 'userForm',
+	form: 'passwordUpdateForm',
 	validate
-})(UserForm);
+})(PasswordUpdateForm);
