@@ -5,39 +5,32 @@ import PasswordUpdateForm from './password_update_form';
 import EmailUpdateForm from './email_update_form';
 
 class UpdateUser extends Component {
-	handleComponentRender = component => {
-		//plug state into the cnditional switch
-		switch (component) {
-			case 'change_email':
-				return (
-					<div className="container center">
-						<EmailUpdateForm />
-					</div>
-				);
-			case 'change_password':
-				return (
-					<div className="container center">
-						<PasswordUpdateForm />
-					</div>
-				);
-			//this is what should apear first
-			default:
-				return (
-					<div clasName="container center">
-						<div>
-							<button>Change Email</button>
-						</div>
-						<div>
-							<button>Change Password</button>
-						</div>
-					</div>
-				);
-		}
-	};
-
 	render() {
-		const from = this.handleComponentRender(this.props.updateComponent);
-		return <div>{form}</div>;
+		const component = this.props.updateComponent;
+		if (component === 'change_email') {
+			return (
+				<div className="container center">
+					<EmailUpdateForm />
+				</div>
+			);
+		} else if (component === 'change_password') {
+			return (
+				<div className="container center">
+					<PasswordUpdateForm />
+				</div>
+			);
+		} else {
+			return (
+				<div clasName="container center">
+					<div>
+						<button>Change Email</button>
+					</div>
+					<div>
+						<button>Change Password</button>
+					</div>
+				</div>
+			);
+		}
 	}
 }
 
@@ -48,3 +41,31 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(UpdateUser);
+
+// 	switch (component) {
+// 		case 'change_email':
+// 			return (
+// 				<div className="container center">
+// 					<EmailUpdateForm />
+// 				</div>
+// 			);
+// 		case 'change_password':
+// 			return (
+// 				<div className="container center">
+// 					<PasswordUpdateForm />
+// 				</div>
+// 			);
+// 		//this is what should apear first
+// 		default:
+// 			return (
+// 				<div clasName="container center">
+// 					<div>
+// 						<button>Change Email</button>
+// 					</div>
+// 					<div>
+// 						<button>Change Password</button>
+// 					</div>
+// 				</div>
+// 			);
+// 	}
+// }
