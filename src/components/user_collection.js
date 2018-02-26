@@ -1,37 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import SuccessMessage from './success_message';
+import ReactDOM from 'react-dom';
 
 class UserCollection extends Component {
-	componentWillMount() {
-		if (this.props.removedMessage) {
-			this.props.removedMessage = null;
-		}
+	componentWillReceiveProps(nextProps) {
+		console.log(this.props);
 	}
 
-	renderRemoveMessage() {
-		if (this.props.removedMessage) {
-			return (
-				<div className="alert alert-success center">
-					<strong>SUCCESS: </strong>
-					{this.props.removedMessage}
-				</div>
-			);
-		}
+	renderRemovedMessage(target) {
+		//here we must put our success_message in the correct react element
+		let targetCard = 'user-record :' + target.target.id;
+		let mountPoint = document.createElement('div');
+		console.log(targetCard);
+		document.getElementById(targetCard).appendChild(mountPoint);
+		ReactDOM.render(
+			<SuccessMessage removedMessage={this.props.removedMessage} />,
+			mountPoint
+		);
 	}
 
 	handleRemoveRecord(targetRecord) {
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
 		console.log('clicked');
-		// targetRecord.target renderRmoveMessage
+		this.renderRemovedMessage(targetRecord);
 	}
 
 	render() {
 		const collection = this.props.userCollection.map((record, key) => {
-			console.log(record);
+			let cardId = 'user-record :' + key;
 			return (
-				<div key={key} className=" columns five u-max-full-">
+				<div key={key} id={cardId} className=" columns five u-max-full-">
 					<h4 className="text-center">{record.artist}</h4>
 					<h6>{record.title}</h6>
 					<img
@@ -39,6 +40,7 @@ class UserCollection extends Component {
 						alt="album artwok here"
 						src={record.imageMedium}
 					/>
+					{/* {this.renderRemovedMessage()} */}
 					<button
 						id={key}
 						onClick={this.handleRemoveRecord.bind(this)}
@@ -54,7 +56,9 @@ class UserCollection extends Component {
 }
 
 function mapStateToProps(state) {
-	removedMessage: state.records.removedMessage;
+	return {
+		removedMessage: state.records.removedMessage
+	};
 }
 
 export default connect(mapStateToProps, actions)(UserCollection);

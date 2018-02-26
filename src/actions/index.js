@@ -198,7 +198,7 @@ export function removeRecord(record) {
 				console.log(response);
 				dispatch({
 					type: REMOVE_RECORD,
-					payload: response
+					payload: response.data
 				});
 			});
 	};

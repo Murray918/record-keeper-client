@@ -21,7 +21,7 @@ class UpdateUser extends Component {
 			);
 		} else {
 			return (
-				<div clasName="container center">
+				<div className="container center">
 					<div>
 						<button>Change Email</button>
 					</div>
