@@ -24,7 +24,6 @@ class UserCollection extends Component {
 	handleRemoveRecord(targetRecord) {
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
-		console.log('clicked');
 		this.renderRemovedMessage(targetRecord);
 	}
 
@@ -32,7 +31,10 @@ class UserCollection extends Component {
 		const collection = this.props.userCollection.map((record, key) => {
 			let cardId = 'user-record :' + key;
 			return (
-				<div key={key} id={cardId} className=" columns five u-max-full-">
+				<div
+					key={key}
+					id={cardId}
+					className="album-container columns five u-max-full-">
 					<h4 className="text-center">{record.artist}</h4>
 					<h6>{record.title}</h6>
 					<img
@@ -40,18 +42,24 @@ class UserCollection extends Component {
 						alt="album artwok here"
 						src={record.imageMedium}
 					/>
-					{/* {this.renderRemovedMessage()} */}
 					<button
 						id={key}
 						onClick={this.handleRemoveRecord.bind(this)}
 						type="click"
-						className="u-pull-right">
+						className="columns u-full-width center">
 						remove
 					</button>
 				</div>
 			);
 		});
-		return <div className="record-container row center">{collection}</div>;
+		return (
+			<div className="container">
+				<div className="center u-full-width" id="UserList">
+					<hr className="u-full-width" />
+					{collection}
+				</div>
+			</div>
+		);
 	}
 }
 

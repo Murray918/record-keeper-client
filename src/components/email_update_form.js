@@ -3,10 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 
 class EmailUpdateForm extends Component {
 	render() {
+		const { handleSubmit, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
 				<form>
-					{/*TODO add the form */}
 					<div className=" center">
 						<Field
 							label="Email"

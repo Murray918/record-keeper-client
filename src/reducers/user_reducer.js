@@ -12,7 +12,7 @@ export default function userReducer(state = {}, action) {
 		case CHANGE_EMAIL:
 			return { ...state, changeEmailMessage: action.payload };
 		case EMAIL_COMPONENT:
-			return { ...state, updateComponet: action.type };
+			return { ...state, updateComponent: action.type };
 		case PASSWORD_COMPONENT:
 			return { ...state, updateComponent: action.type };
 		default:

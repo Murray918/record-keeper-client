@@ -43,7 +43,14 @@ export function signinUser({ email, password }) {
 export function renderEmailForm() {
 	return {
 		type: EMAIL_COMPONENT
+		// payload: EMAIL_COMPONENT
 	};
+	// return function(dispatch) {
+	// 	dispatch({
+	// 		type: EMAIL_COMPONENT,
+	// 		payload: EMAIL_COMPONENT
+	// 	});
+	// };
 }
 
 export function renderPasswordForm() {
