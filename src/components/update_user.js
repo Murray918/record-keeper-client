@@ -36,18 +36,15 @@ class UpdateUser extends Component {
 	render() {
 		switch (this.props.updateComponent) {
 			case 'email_component':
-			// return <EmailUpdateForm handleSubmit={this.handleSubmit.bind(this)} />;
+				return <EmailUpdateForm onSubmit={this.handleEmailReset.bind(this)} />;
 			case 'password_component':
 				return (
-					<PasswordUpdateForm
-						handlePasswordReset={this.handlePasswordReset.bind(this)}
-					/>
+					<PasswordUpdateForm onSubmit={this.handlePasswordReset.bind(this)} />
 				);
 			//this is what should apear first
 			default:
 				return (
 					<div className="container center">
-						<EmailUpdateForm onSubmit={this.handleEmailReset.bind(this)} />
 						<div className="center">
 							<button onClick={e => this.handleEmailClick(e)}>
 								Change Email

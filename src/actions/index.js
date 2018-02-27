@@ -204,11 +204,12 @@ export function removeRecord(record) {
 	};
 }
 
-export function changePassword(newPassword) {
+export function changePassword({ newPassword, newPasswordConfirmation }) {
 	return function(dispatch) {
 		let postData = {
 			email: localStorage.getItem('user'),
-			password: newPassword
+			password: newPassword,
+			newPasswordConfirmation
 		};
 		axios
 			.post(`${ROOT_URL}/updateuserpassword`, postData, {

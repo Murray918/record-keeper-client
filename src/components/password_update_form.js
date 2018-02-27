@@ -14,12 +14,12 @@ class PasswordUpdateForm extends Component {
 	}
 
 	render() {
-		const { handlePasswordReset, pristine, submitting } = this.props;
+		const { handleSubmit, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
 				<a>See My Record Collection</a>
 				<h1>Please Provide A New Password</h1>
-				<form onSubmit={handlePasswordReset}>
+				<form onSubmit={handleSubmit}>
 					<div className="center">
 						<Field
 							label="Password"

@@ -5,10 +5,6 @@ import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
 
 class UserCollection extends Component {
-	componentWillReceiveProps(nextProps) {
-		console.log(this.props);
-	}
-
 	renderRemovedMessage(target) {
 		//here we must put our success_message in the correct react element
 		let targetCard = 'user-record :' + target.target.id;
