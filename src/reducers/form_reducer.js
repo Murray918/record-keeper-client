@@ -3,10 +3,12 @@ import {
 	UNAUTH_USER,
 	AUTH_ERROR,
 	FETCH_DATA,
-	SEARCH
+	SEARCH,
+	CHANGE_PASSWORD,
+	CHANGE_EMAIL
 } from '../actions/types';
 
-export default function authReducer(state = {}, action) {
+export default function formReducer(state = {}, action) {
 	switch (action.type) {
 		case AUTH_USER:
 			return { ...state, error: '', authenticated: true };
@@ -18,6 +20,10 @@ export default function authReducer(state = {}, action) {
 			return { ...state, message: action.payload };
 		case SEARCH:
 			return { ...state, search: true };
+		case CHANGE_PASSWORD:
+			return { ...state, changePassMessage: action.payload };
+		case CHANGE_EMAIL:
+			return { ...state, changeEmailMessage: action.payload };
 		default:
 			return state;
 	}

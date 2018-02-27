@@ -5,32 +5,55 @@ import PasswordUpdateForm from './password_update_form';
 import EmailUpdateForm from './email_update_form';
 
 class UpdateUser extends Component {
-	handleEmailClick(e) {
+	componentDidMount() {
+		// this.props.changePassword('23456789', '23456789');
+		// console.log(this.props);
+		// let tom = 'kaa@baa.com';
+		// this.props.changeEmail(tom);
 		console.log(this.props);
+	}
+
+	handleEmailClick(e) {
 		this.props.renderEmailForm();
-		console.log(this.props.updateComponent);
 	}
 
 	handlePasswordClick(e) {
 		this.props.renderPasswordForm();
 	}
 
+	handleEmailReset({ newEmail, newEmailConfirm }) {
+		console.log(newEmail, newEmailConfirm);
+		this.props.changeEmail({ newEmail, newEmailConfirm });
+	}
+
+	handlePasswordReset({ newPassword, newPasswordConfirmation }) {
+		this.props.changePassword({ newPassword, newPasswordConfirmation });
+	}
+
 	render() {
 		switch (this.props.updateComponent) {
 			case 'email_component':
-				return <EmailUpdateForm />;
+				return (
+					<EmailUpdateForm
+						handleEmailReset={this.handleEmailReset.bind(this)}
+					/>
+				);
 			case 'password_component':
-				return <PasswordUpdateForm />;
+				return (
+					<PasswordUpdateForm
+						handlePasswordReset={this.handlePasswordReset.bind(this)}
+					/>
+				);
 			//this is what should apear first
 			default:
 				return (
 					<div className="container center">
-						<div calssName="center">
+						<div className="center">
 							<button onClick={e => this.handleEmailClick(e)}>
 								Change Email
 							</button>
 						</div>
-						<div calssName="center">
+						<div className="center">
 							<button onClick={e => this.handlePasswordClick(e)}>
 								Change Password
 							</button>
@@ -43,7 +66,8 @@ class UpdateUser extends Component {
 
 function mapStateToProps(state) {
 	return {
-		updateComponent: state.user.updateComponent
+		updateComponent: state.user.updateComponent,
+		changeEmailMessage: state.user.changeEmailMessage
 	};
 }
 

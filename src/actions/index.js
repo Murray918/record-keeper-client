@@ -66,45 +66,43 @@ export function signoutUser() {
 		type: UNAUTH_USER
 	};
 }
-
-export function changePassword({ email, password }) {
+export function changeEmail(newEmail, newEmailConfirm) {
 	return function(dispatch) {
+		if (!newEmail || !newEmailConfirm) {
+			dispatch({
+				type: CHANGE_EMAIL,
+				payload: {
+					problem: {
+						newEmail,
+						newEmailConfirm
+					}
+				}
+			});
+		}
 		let postData = {
-			email: localStorage.getItem('user'),
-			password: password
+			newEmail: newEmailConfirm,
+			oldEmail: localStorage.getItem('user')
 		};
-		axios
-			.post(`${ROOT_URL}/updateuserpassword`, postData, {
-				headers: localStorage.getItem('token')
-			})
-			.then(response => {
-				console.log('this is the update pass res :', response.data);
-				dispatch({
-					type: CHANGE_PASSWORD,
-					payload: response.data
-				});
-			});
-	};
-}
-
-export function changeEmail({ email }) {
-	return function(dispatch) {
-		axios
-			.post(`${ROOT_URL}/updateuseremail`, email, {
-				headers: localStorage.getItem('token')
-			})
-			.then(response => {
-				console.log('thes is the update email res :', response.data);
-				dispatch({
-					type: CHANGE_EMAIL,
-					payload: response.data
-				});
-			});
+		dispatch({
+			type: CHANGE_EMAIL,
+			payload: postData
+		});
+		// 		axios
+		// 			.post(`${ROOT_URL}/updateuseremail`, postData, {
+		// 				headers: { authorization: localStorage.getItem('token') }
+		// 			})
+		// 			.then(response => {
+		// 				console.log('thes is the update email res :', response.data);
+		// 				dispatch({
+		// 					type: CHANGE_EMAIL,
+		// 					payload: response.data
+		// 				});
+		// 				// localStorage.setItem('user', newEmail);
+		// 			});
 	};
 }
 
 // export function
-
 export function signupUser({ email, password, passwordConfirmation }) {
 	return function(dispatch) {
 		axios
@@ -205,6 +203,26 @@ export function removeRecord(record) {
 				console.log(response);
 				dispatch({
 					type: REMOVE_RECORD,
+					payload: response.data
+				});
+			});
+	};
+}
+
+export function changePassword(newPassword) {
+	return function(dispatch) {
+		let postData = {
+			email: localStorage.getItem('user'),
+			password: newPassword
+		};
+		axios
+			.post(`${ROOT_URL}/updateuserpassword`, postData, {
+				headers: { authorization: localStorage.getItem('token') }
+			})
+			.then(response => {
+				console.log('this is the update pass res :', response.data);
+				dispatch({
+					type: CHANGE_PASSWORD,
 					payload: response.data
 				});
 			});

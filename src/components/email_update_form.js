@@ -2,15 +2,26 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class EmailUpdateForm extends Component {
+	renderAlert() {
+		if (this.props.errorMessage) {
+			return (
+				<div className="alert alert-danger">
+					<strong>Oops: </strong>
+					{this.props.errorMessage}
+				</div>
+			);
+		}
+	}
+
 	render() {
-		const { handleSubmit, pristine, submitting } = this.props;
+		const { handleEmailReset, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
-				<form>
+				<form onSubmit={handleEmailReset}>
 					<div className=" center">
 						<Field
-							label="Email"
-							name="email"
+							label="newEmail"
+							name="newEmail"
 							component="input"
 							type="text"
 							placeholder="Enter Email"
@@ -19,12 +30,15 @@ class EmailUpdateForm extends Component {
 					<div className=" center">
 						<Field
 							label="Email"
-							name="email"
+							name="newEmailConfirm"
 							component="input"
 							type="text"
 							placeholder="Enter Email"
 						/>
 					</div>
+					<button type="submit" disabled={pristine || submitting}>
+						Sign IN
+					</button>
 				</form>
 			</div>
 		);
@@ -34,14 +48,14 @@ class EmailUpdateForm extends Component {
 const validate = values => {
 	const errors = {};
 
-	if (!values.email) {
-		errors.email = 'Please enter an email';
+	if (!values.newEmail) {
+		errors.newEmail = 'Please enter an email';
 	}
 
 	return errors;
 };
 
 export default reduxForm({
-	form: 'emailUpdateForm',
+	form: 'newemail',
 	validate
 })(EmailUpdateForm);

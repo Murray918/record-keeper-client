@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 class PasswordUpdateForm extends Component {
+	renderAlert() {
+		if (this.props.errorMessage) {
+			return (
+				<div className="alert alert-danger">
+					<strong>Oops: </strong>
+					{this.props.errorMessage}
+				</div>
+			);
+		}
+	}
+
 	render() {
+		const { handlePasswordReset, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
 				<a>See My Record Collection</a>
 				<h1>Please Provide A New Password</h1>
-				<form>
+				<form onSubmit={handlePasswordReset}>
 					<div className="center">
 						<Field
 							label="Password"
-							name="password"
+							name="newPassword"
 							component="input"
 							type="password"
 							placeholder="Enter Password"
@@ -20,12 +32,15 @@ class PasswordUpdateForm extends Component {
 					<div className="center">
 						<Field
 							label="Password Confirmation"
-							name="passwordConfirmation"
+							name="newPasswordConfirmation"
 							component="input"
 							type="password"
 							placeholder="Confirm Password"
 						/>
 					</div>
+					<button type="submit" disabled={pristine || submitting}>
+						Submit
+					</button>
 				</form>
 			</div>
 		);
@@ -51,6 +66,6 @@ const validate = values => {
 };
 
 export default reduxForm({
-	form: 'passwordUpdateForm',
+	form: 'newpassword',
 	validate
 })(PasswordUpdateForm);
