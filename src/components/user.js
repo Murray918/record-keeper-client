@@ -7,7 +7,6 @@ import UserCollection from './user_collection';
 class User extends Component {
 	componentDidMount() {
 		this.props.viewUserCollection();
-		console.log(this.props);
 	}
 
 	render() {
@@ -20,7 +19,10 @@ class User extends Component {
 		}
 		return (
 			<div id="UserCollection" className="container">
-				<UserCollection userCollection={this.props.userCollection} />
+				<UserCollection
+					userCollection={this.props.userCollection}
+					removedMessage={this.props.renderRemovedMessage}
+				/>
 			</div>
 		);
 	}
@@ -28,7 +30,8 @@ class User extends Component {
 
 function mapStateToProps(state) {
 	return {
-		userCollection: state.records.userCollection
+		userCollection: state.records.userCollection,
+		removedMessage: state.user.removedMessage
 	};
 }
 

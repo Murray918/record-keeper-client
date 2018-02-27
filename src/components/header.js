@@ -6,14 +6,14 @@ class Header extends Component {
 	renderLinks() {
 		if (this.props.authenticated) {
 			return [
-				<li key={1} className="two columns ">
-					<Link to="/signout">Sign Out</Link>
+				<li key={1} className="two columns">
+					<Link to="/user">{localStorage.getItem('user')}</Link>
 				</li>,
 				<li key={2} className="two columns">
-					<Link to="/search">Search Records</Link>
+					<Link to="/signout">Sign Out</Link>
 				</li>,
-				<li key={3} className="two columns u-pull-right">
-					<Link to="/user">{localStorage.getItem('user')}</Link>
+				<li key={3} className="two columns">
+					<Link to="/search">Search Records</Link>
 				</li>
 			];
 		} else {
@@ -31,9 +31,9 @@ class Header extends Component {
 	render() {
 		console.log(this.props);
 		return (
-			<div>
-				<nav id="Nav" className="row">
-					<ul className="ten">
+			<div className="container">
+				<nav id="Nav">
+					<ul className="row">
 						<li>
 							<Link className="two columns" to="/" id="home">
 								Home

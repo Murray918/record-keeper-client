@@ -6,10 +6,9 @@ import ReactDOM from 'react-dom';
 
 class UserCollection extends Component {
 	renderRemovedMessage(target) {
-		//here we must put our success_message in the correct react element
+		target.target.disabled = true;
 		let targetCard = 'user-record :' + target.target.id;
 		let mountPoint = document.createElement('div');
-		console.log(targetCard);
 		document.getElementById(targetCard).appendChild(mountPoint);
 		ReactDOM.render(
 			<SuccessMessage removedMessage={this.props.removedMessage} />,
@@ -18,6 +17,7 @@ class UserCollection extends Component {
 	}
 
 	handleRemoveRecord(targetRecord) {
+		this.disabled = true;
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
 		this.renderRemovedMessage(targetRecord);

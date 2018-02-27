@@ -43,14 +43,7 @@ export function signinUser({ email, password }) {
 export function renderEmailForm() {
 	return {
 		type: EMAIL_COMPONENT
-		// payload: EMAIL_COMPONENT
 	};
-	// return function(dispatch) {
-	// 	dispatch({
-	// 		type: EMAIL_COMPONENT,
-	// 		payload: EMAIL_COMPONENT
-	// 	});
-	// };
 }
 
 export function renderPasswordForm() {
@@ -86,8 +79,6 @@ export function changeEmail({ newEmail, newEmailConfirm }) {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
-				console.log('thes is the update email res :', response.data);
-
 				dispatch({
 					type: CHANGE_EMAIL,
 					payload: response.data
@@ -130,7 +121,6 @@ export function fetchData() {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
-				console.log(response.data);
 				dispatch({
 					type: FETCH_DATA,
 					payload: response.data
@@ -141,20 +131,12 @@ export function fetchData() {
 
 //TODO get data from spotify api dynamically
 export function search(value) {
-	console.log(
-		'this is the type: ',
-		value.value,
-		' and this is the query :',
-		value.query,
-		'2'
-	);
 	return function(dispatch) {
 		axios
 			.get(`${ROOT_URL}/spotify/album/${value.query}`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
-				console.log(response.data);
 				dispatch({
 					type: SEARCH,
 					payload: response.data
@@ -172,7 +154,6 @@ export function viewUserCollection() {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
-				console.log(response.data);
 				dispatch({
 					type: VIEW_USER_COLLECTION,
 					payload: response.data
@@ -195,7 +176,6 @@ export function removeRecord(record) {
 				}
 			})
 			.then(response => {
-				console.log(response);
 				dispatch({
 					type: REMOVE_RECORD,
 					payload: response.data
@@ -239,9 +219,7 @@ export function addRecord(album) {
 					authorization: localStorage.getItem('token')
 				}
 			})
-			.then(response => {
-				console.log(response);
-			});
+			.then(response => {});
 		//we need to have a fetch with our auth and our record to add and a user email
 		console.log(album);
 		dispatch({

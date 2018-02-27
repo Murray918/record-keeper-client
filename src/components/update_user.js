@@ -5,15 +5,6 @@ import PasswordUpdateForm from './password_update_form';
 import EmailUpdateForm from './email_update_form';
 
 class UpdateUser extends Component {
-	componentDidMount() {
-		// this.props.changeEmail();
-		// this.props.changePassword('23456789', '23456789');
-		// console.log(this.props);
-		// let tom = 'kaa@baa.com';
-		// this.props.changeEmail(tom);
-		console.log(this.props);
-	}
-
 	handleEmailClick(e) {
 		this.props.renderEmailForm();
 	}
@@ -23,9 +14,6 @@ class UpdateUser extends Component {
 	}
 
 	handleEmailReset({ newEmail, newEmailConfirm }) {
-		// console.log(newEmail, newEmailConfirm);
-		console.log({ newEmail, newEmailConfirm });
-		// console.log(...value);
 		this.props.changeEmail({ newEmail, newEmailConfirm });
 	}
 

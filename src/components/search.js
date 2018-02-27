@@ -6,14 +6,9 @@ import SearchForm from './search_form';
 import Loading from './loading';
 
 class Search extends Component {
-	// componentWillMount() {
-	// 	if (this.props.removedMessage) {
-	// 		this.props.removedMessage = null;
-	// 	}
-	// }
+	// TODO create some kind of initial state that the component can revert to upon unmounting
 
 	handleSubmit({ value, query }) {
-		console.log('this is the type: ', value, ' and this is the query :', query);
 		this.props.search({ value, query });
 	}
 
