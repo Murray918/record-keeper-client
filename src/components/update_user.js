@@ -6,6 +6,7 @@ import EmailUpdateForm from './email_update_form';
 
 class UpdateUser extends Component {
 	componentDidMount() {
+		// this.props.changeEmail();
 		// this.props.changePassword('23456789', '23456789');
 		// console.log(this.props);
 		// let tom = 'kaa@baa.com';
@@ -22,7 +23,9 @@ class UpdateUser extends Component {
 	}
 
 	handleEmailReset({ newEmail, newEmailConfirm }) {
-		console.log(newEmail, newEmailConfirm);
+		// console.log(newEmail, newEmailConfirm);
+		console.log({ newEmail, newEmailConfirm });
+		// console.log(...value);
 		this.props.changeEmail({ newEmail, newEmailConfirm });
 	}
 
@@ -33,11 +36,7 @@ class UpdateUser extends Component {
 	render() {
 		switch (this.props.updateComponent) {
 			case 'email_component':
-				return (
-					<EmailUpdateForm
-						handleEmailReset={this.handleEmailReset.bind(this)}
-					/>
-				);
+			// return <EmailUpdateForm handleSubmit={this.handleSubmit.bind(this)} />;
 			case 'password_component':
 				return (
 					<PasswordUpdateForm
@@ -48,6 +47,7 @@ class UpdateUser extends Component {
 			default:
 				return (
 					<div className="container center">
+						<EmailUpdateForm onSubmit={this.handleEmailReset.bind(this)} />
 						<div className="center">
 							<button onClick={e => this.handleEmailClick(e)}>
 								Change Email

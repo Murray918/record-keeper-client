@@ -66,39 +66,34 @@ export function signoutUser() {
 		type: UNAUTH_USER
 	};
 }
-export function changeEmail(newEmail, newEmailConfirm) {
+export function changeEmail({ newEmail, newEmailConfirm }) {
 	return function(dispatch) {
 		if (!newEmail || !newEmailConfirm) {
 			dispatch({
 				type: CHANGE_EMAIL,
 				payload: {
-					problem: {
-						newEmail,
-						newEmailConfirm
-					}
+					problem: 'Something is Missing'
 				}
 			});
 		}
 		let postData = {
-			newEmail: newEmailConfirm,
-			oldEmail: localStorage.getItem('user')
+			oldEmail: localStorage.getItem('user'),
+			newEmail,
+			newEmailConfirm
 		};
-		dispatch({
-			type: CHANGE_EMAIL,
-			payload: postData
-		});
-		// 		axios
-		// 			.post(`${ROOT_URL}/updateuseremail`, postData, {
-		// 				headers: { authorization: localStorage.getItem('token') }
-		// 			})
-		// 			.then(response => {
-		// 				console.log('thes is the update email res :', response.data);
-		// 				dispatch({
-		// 					type: CHANGE_EMAIL,
-		// 					payload: response.data
-		// 				});
-		// 				// localStorage.setItem('user', newEmail);
-		// 			});
+		axios
+			.post(`${ROOT_URL}/updateuseremail`, postData, {
+				headers: { authorization: localStorage.getItem('token') }
+			})
+			.then(response => {
+				console.log('thes is the update email res :', response.data);
+
+				dispatch({
+					type: CHANGE_EMAIL,
+					payload: response.data
+				});
+				localStorage.setItem('user', newEmail);
+			});
 	};
 }
 

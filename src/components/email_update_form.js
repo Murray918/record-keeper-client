@@ -14,26 +14,28 @@ class EmailUpdateForm extends Component {
 	}
 
 	render() {
-		const { handleEmailReset, pristine, submitting } = this.props;
+		const { handleSubmit, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
-				<form onSubmit={handleEmailReset}>
+				<form onSubmit={handleSubmit}>
 					<div className=" center">
 						<Field
+							value="newEmail"
 							label="newEmail"
 							name="newEmail"
 							component="input"
-							type="text"
-							placeholder="Enter Email"
+							type="email"
+							placeholder="Enter New Email"
 						/>
 					</div>
 					<div className=" center">
 						<Field
-							label="Email"
+							value="newEmailConfirm"
+							label="newEmailConfirm"
 							name="newEmailConfirm"
 							component="input"
-							type="text"
-							placeholder="Enter Email"
+							type="email"
+							placeholder="Confirm Email"
 						/>
 					</div>
 					<button type="submit" disabled={pristine || submitting}>
@@ -48,7 +50,7 @@ class EmailUpdateForm extends Component {
 const validate = values => {
 	const errors = {};
 
-	if (!values.newEmail) {
+	if (!values.newEmail || !values.newEmailConfirm) {
 		errors.newEmail = 'Please enter an email';
 	}
 
@@ -57,5 +59,6 @@ const validate = values => {
 
 export default reduxForm({
 	form: 'newemail',
-	validate
+	validate,
+	destroyOnUnmount: false
 })(EmailUpdateForm);
