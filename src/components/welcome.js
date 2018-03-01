@@ -15,7 +15,7 @@ export default () => {
 				<h1>YOUR</h1> <h1>COLLECTION.</h1>
 			</div>
 			<div id="landing-text-two">
-				<h1>FEED</h1> <h1>YOUR</h1> <h1>PASSION.</h1>
+				<h1>FEED</h1> <h1>YOUR</h1> <h1>PASSION!</h1>
 			</div>
 		</div>
 	);
