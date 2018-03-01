@@ -8,10 +8,27 @@
 	color: black;
 }
 
+#landing-container {
+	position: relative;
+	text-align: center;
+	color: black;
+}
+
 #landing-image {
+	position: absolute;
+	left: 0;
 	width: auto;
-	max-height: 600px;
-	padding-top: 3em;
+	height: auto;
+	max-height: 90vh;
+	max-width: 100%;
+	opacity: 0.4;
+}
+
+#landing-text {
+	font-size: 1em;
+	position: absolute;
+	top: 8em;
+	left: 6px;
 }
 
 #search-bar {
