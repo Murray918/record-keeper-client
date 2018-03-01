@@ -21,14 +21,24 @@
 	height: auto;
 	max-height: 90vh;
 	max-width: 100%;
-	opacity: 0.4;
+	opacity: 0.2;
 }
 
-#landing-text {
-	font-size: 1em;
+#landing-text-one {
+	font-family: 'Biryani', sans-serif;
+	font-size: 1.3em;
 	position: absolute;
-	top: 8em;
-	left: 6px;
+	top: 3em;
+	left: 2.5em;
+}
+
+#landing-text-two {
+	text-align: right;
+	font-family: 'Biryani', sans-serif;
+	font-size: 1.3em;
+	position: absolute;
+	bottom: -28em;
+	right: 2em;
 }
 
 #search-bar {
