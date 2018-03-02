@@ -11,7 +11,9 @@ import {
 	CHANGE_PASSWORD,
 	CHANGE_EMAIL,
 	EMAIL_COMPONENT,
-	PASSWORD_COMPONENT
+	PASSWORD_COMPONENT,
+	DROPDOWN_SHOW,
+	DROPDOWN_HIDE
 } from './types';
 //localhost url
 const ROOT_URL = 'http://localhost:3090';
@@ -37,6 +39,19 @@ export function signinUser({ email, password }) {
 			.catch(() => {
 				dispatch(authError('bad login info'));
 			});
+	};
+}
+
+export function showDropdown() {
+	return function(dispatch) {
+		return dispatch({
+			type: DROPDOWN_SHOW
+		});
+	};
+}
+export function hideDropdown() {
+	return {
+		type: DROPDOWN_HIDE
 	};
 }
 

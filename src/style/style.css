@@ -1,11 +1,25 @@
 .error {
 	color: red;
 }
-#landing {
-}
 
 #root {
 	color: black;
+}
+
+#Nav li {
+	list-style: none;
+	margin-top: 1.5em;
+}
+
+.nav-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-text {
+}
+.menu {
+	display: none;
 }
 
 #landing-container {
@@ -63,12 +77,6 @@
 }
 .center-btn {
 	padding-left: 45px;
-}
-
-#Nav ul,
-li {
-	list-style: none;
-	margin-left: 1em;
 }
 
 .sign-in-up {

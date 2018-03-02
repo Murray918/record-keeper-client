@@ -10,3 +10,5 @@ export const CHANGE_EMAIL = 'change_email';
 export const CHANGE_PASSWORD = 'change_password';
 export const EMAIL_COMPONENT = 'email_component';
 export const PASSWORD_COMPONENT = 'password_component';
+export const DROPDOWN_SHOW = 'dropdown_show';
+export const DROPDOWN_HIDE = 'dropdown_hide';

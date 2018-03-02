@@ -39,7 +39,7 @@ ReactDOM.render(
 		<Router>
 			<Switch>
 				<Header>
-					<Route path="/" exact={true} component={Welcome} />
+					<Route exact path="/" component={Welcome} />
 					<Route path="/signin" component={Signin} />
 					<Route path="/signout" component={Signout} />
 					<Route path="/signup" component={Signup} />
