@@ -6,16 +6,12 @@ import ReactDOM from 'react-dom';
 import Dropdown from './dropdown';
 
 class Header extends Component {
-	componentWillMount() {
-		console.log(this.props);
+	constructor(props) {
+		super(props);
 	}
-
-	componentWillReceiveProps(nextProps) {
-		console.log(nextProps);
-		if (this.props.menu !== nextProps.menu) {
-		}
-	}
-
+	state = {
+		menu: false
+	};
 	renderLinks() {
 		if (this.props.authenticated) {
 			return [
@@ -46,10 +42,16 @@ class Header extends Component {
 	}
 
 	handleDropdown() {
-		if (this.props.menu === false) {
-			this.props.showDropdown();
-		} else if (this.props.menu === true) {
-			this.props.hideDropdown();
+		if (this.state.menu === false) {
+			console.log(this.state.menu);
+			this.setState({
+				menu: true
+			});
+		} else if (this.state.menu === true) {
+			console.log(this.state.menu);
+			this.setState({
+				menu: false
+			});
 		}
 	}
 
@@ -62,7 +64,7 @@ class Header extends Component {
 							<NavLink to="/">Home</NavLink>
 						</li>
 						{this.renderLinks()}
-						<Dropdown menu={this.props.menu} />
+						<Dropdown menu={this.state.menu} />
 					</ul>
 				</nav>
 				<div className="container">{this.props.children}</div>
@@ -73,8 +75,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
 	return {
-		authenticated: state.auth.authenticated,
-		menu: state.user.menu
+		authenticated: state.auth.authenticated
 	};
 }
 
