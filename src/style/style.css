@@ -5,14 +5,21 @@
 #root {
 	color: black;
 }
+.search-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
 
 #search-bar {
-	margin: 0.5em;
-	margin-bottom: 2em;
+	width: 95%;
+	margin-top: 3rem;
+	margin-bottom: 4rem;
 }
 
 #search-btn {
-	min-width: 4em;
+	max-width: 14rem;
 	text-align: center;
 	background-color: #f78e80;
 	border: none;
@@ -83,20 +90,22 @@
 	}
 
 	#landing-text-one {
+		font-family: 'Biryani', sans-serif;
 		position: absolute;
-		left: -5rem;
-		top: -3rem;
+		left: -2rem;
+		top: 6rem;
 		font-size: 2rem;
 		opacity: 0.68;
 	}
 
 	#landing-text-two {
+		font-family: 'Biryani', sans-serif;
 		font-size: 2rem;
 		text-align: right;
 		position: absolute;
-		right: -4.8rem;
+		right: -2.5rem;
 		opacity: 0.7;
-		top: 26rem;
+		top: 40.12rem;
 	}
 }
 
@@ -116,10 +125,19 @@
 .item {
 	padding: 2rem;
 }
+
+.menu-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .menu {
 	color: red;
+	min-width: 100%;
+	margin-left: 12%;
 	text-align: center;
-	margin: 0;
+	padding: 0.55rem;
 	border: 1px solid #dbebf9;
 	border-radius: 0.3rem;
 	background-color: #dbebf9;
@@ -131,8 +149,10 @@
 
 /* Larger than tablet */
 @media (min-width: 750px) {
+	#search-bar {
+		width: 60%;
+	}
 	#landing-image {
-		/* height: 40vh; */
 		width: 200%;
 	}
 
@@ -150,19 +170,21 @@
 	}
 
 	#landing-text-one {
+		font-family: 'Biryani', sans-serif;
 		position: absolute;
-		left: -10rem;
+		left: -8rem;
 		font-size: 2rem;
 		opacity: 0.68;
 	}
 
 	#landing-text-two {
+		font-family: 'Biryani', sans-serif;
 		font-size: 2rem;
 		text-align: right;
 		position: absolute;
-		right: -10.8rem;
+		right: -8rem;
 		opacity: 0.7;
-		top: 26rem;
+		top: 45.6rem;
 	}
 
 	.nav-text {
@@ -191,6 +213,9 @@
 		max-width: 100%;
 		opacity: 0.2;
 	}
+	#search-bar {
+		width: 80%;
+	}
 
 	#landing-image {
 		position: absolute;
@@ -211,7 +236,7 @@
 		font-family: 'Biryani', sans-serif;
 		font-size: 1.8rem;
 		position: absolute;
-		top: 2.3em;
+		top: 6.5rem;
 		left: 1.5em;
 	}
 
@@ -220,8 +245,8 @@
 		font-family: 'Biryani', sans-serif;
 		font-size: 2.3rem;
 		position: absolute;
-		bottom: -16.5em;
-		right: 0.8em;
+		top: 37rem;
+		right: 0.8rem;
 	}
 
 	.nav-list {

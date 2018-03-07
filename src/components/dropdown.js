@@ -9,7 +9,7 @@ export default class Dropdown extends Component {
 		if (this.props.menu === true) {
 			return (
 				<div onMouseLeave={this.props.onMouseLeave} id="Dropdown">
-					<ul className="dropdown-list">
+					<ul className="dropdown-list menu-wrapper">
 						<li key={5} ref="item3" className="menu">
 							<Link className="item" to="/user">
 								<strong>View Your Collection</strong>
