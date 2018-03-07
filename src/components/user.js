@@ -12,7 +12,7 @@ class User extends Component {
 	render() {
 		if (this.props.userCollection === undefined || null || '') {
 			return (
-				<div id="Search" className="container">
+				<div id="Search">
 					<Loading />
 				</div>
 			);

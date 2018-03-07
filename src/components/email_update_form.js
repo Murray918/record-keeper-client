@@ -5,7 +5,7 @@ class EmailUpdateForm extends Component {
 	renderAlert() {
 		if (this.props.errorMessage) {
 			return (
-				<div className="alert alert-danger">
+				<div className="error">
 					<strong>Oops: </strong>
 					{this.props.errorMessage}
 				</div>
