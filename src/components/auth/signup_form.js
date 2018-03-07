@@ -20,7 +20,7 @@ class SignupForm extends Component {
 			<div id="SignupForm" className="container sign-in-up">
 				{this.renderAlert()}
 				<form onSubmit={handleSubmit} className="row center">
-					<div className=" center">
+					<div>
 						<Field
 							label="Email"
 							name="email"
@@ -28,8 +28,6 @@ class SignupForm extends Component {
 							type="text"
 							placeholder="Enter Email"
 						/>
-					</div>
-					<div className="center">
 						<Field
 							label="Password"
 							name="password"
@@ -37,8 +35,6 @@ class SignupForm extends Component {
 							type="password"
 							placeholder="Enter Password"
 						/>
-					</div>
-					<div className="center">
 						<Field
 							label="Password Confirmation"
 							name="passwordConfirmation"
@@ -46,9 +42,10 @@ class SignupForm extends Component {
 							type="password"
 							placeholder="Confirm Password"
 						/>
-					</div>
-					<div className="center center-btn">
-						<button type="submit" disabled={pristine || submitting}>
+						<button
+							className="button-primary:focus form-button"
+							type="submit"
+							disabled={pristine || submitting}>
 							Sign IN
 						</button>
 					</div>

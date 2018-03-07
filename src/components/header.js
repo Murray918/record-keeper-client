@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { NavLink, Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
+import { NavLink } from 'react-router-dom';
 import Dropdown from './dropdown';
 
 class Header extends Component {
-	constructor(props) {
-		super(props);
-	}
 	state = {
 		menu: false
 	};

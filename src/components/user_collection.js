@@ -34,7 +34,7 @@ class UserCollection extends Component {
 						id={key}
 						onClick={this.handleRemoveRecord.bind(this)}
 						type="click"
-						className="center">
+						className="button-primary:focus form-button">
 						REMOVE
 					</button>
 				</div>

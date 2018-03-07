@@ -38,7 +38,7 @@ class AlbumList extends Component {
 						id={key}
 						onClick={this.handleAddRecord.bind(this)}
 						type="click"
-						className="u-pull-right">
+						className="u-pull-right button-primary:focus form-button">
 						ADD
 					</button>
 				</div>

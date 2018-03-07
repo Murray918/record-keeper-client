@@ -36,7 +36,7 @@ class SigninForm extends Component {
 							placeholder="Enter Password"
 						/>
 						<button
-							className="form-button"
+							className="button-primary:focus form-button"
 							type="submit"
 							disabled={pristine || submitting}>
 							Sign IN
