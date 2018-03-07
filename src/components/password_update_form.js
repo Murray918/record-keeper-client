@@ -17,30 +17,32 @@ class PasswordUpdateForm extends Component {
 		const { handleSubmit, pristine, submitting } = this.props;
 		return (
 			<div className="container center">
-				<a>See My Record Collection</a>
 				<h1>Please Provide A New Password</h1>
 				<form onSubmit={handleSubmit}>
-					<div className="center">
+					<div className="form-wrapper">
 						<Field
+							className="form-item"
 							label="Password"
 							name="newPassword"
 							component="input"
 							type="password"
 							placeholder="Enter Password"
 						/>
-					</div>
-					<div className="center">
 						<Field
+							className="form-item"
 							label="Password Confirmation"
 							name="newPasswordConfirmation"
 							component="input"
 							type="password"
 							placeholder="Confirm Password"
 						/>
+						<button
+							className="form-button button-primary:focus"
+							type="submit"
+							disabled={pristine || submitting}>
+							Submit
+						</button>
 					</div>
-					<button type="submit" disabled={pristine || submitting}>
-						Submit
-					</button>
 				</form>
 			</div>
 		);

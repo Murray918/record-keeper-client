@@ -22,30 +22,22 @@ class UpdateUser extends Component {
 	}
 
 	render() {
-		switch (this.props.updateComponent) {
-			case 'email_component':
-				return <EmailUpdateForm onSubmit={this.handleEmailReset.bind(this)} />;
-			case 'password_component':
-				return (
+		return (
+			<div id="UpdateUser" className="list-wrapper">
+				<div className="info-wrapper">
+					<p>
+						Here you can update your user name and password.{' '}
+						<strong>Just remember that these changes are perminant!</strong>
+					</p>
+				</div>
+				<div className="form-container">
+					<EmailUpdateForm onSubmit={this.handleEmailReset.bind(this)} />
+				</div>
+				<div className="form-container">
 					<PasswordUpdateForm onSubmit={this.handlePasswordReset.bind(this)} />
-				);
-			//this is what should apear first
-			default:
-				return (
-					<div className="container center">
-						<div className="center">
-							<button onClick={e => this.handleEmailClick(e)}>
-								Change Email
-							</button>
-						</div>
-						<div className="center">
-							<button onClick={e => this.handlePasswordClick(e)}>
-								Change Password
-							</button>
-						</div>
-					</div>
-				);
-		}
+				</div>
+			</div>
+		);
 	}
 }
 

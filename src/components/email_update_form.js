@@ -16,31 +16,36 @@ class EmailUpdateForm extends Component {
 	render() {
 		const { handleSubmit, pristine, submitting } = this.props;
 		return (
-			<div className="container center">
+			<div id="SearchForm">
+				<h1>Please Provide Your New Email</h1>
 				<form onSubmit={handleSubmit}>
-					<div className=" center">
+					<div className="form-wrapper">
 						<Field
 							value="newEmail"
+							className="form-item"
 							label="newEmail"
 							name="newEmail"
 							component="input"
 							type="email"
 							placeholder="Enter New Email"
 						/>
-					</div>
-					<div className=" center">
 						<Field
 							value="newEmailConfirm"
+							className="form-item"
 							label="newEmailConfirm"
 							name="newEmailConfirm"
 							component="input"
 							type="email"
 							placeholder="Confirm Email"
 						/>
+						<button
+							className="form-button button-primary:focus
+							"
+							type="submit"
+							disabled={pristine || submitting}>
+							SUBMIT
+						</button>
 					</div>
-					<button type="submit" disabled={pristine || submitting}>
-						Sign IN
-					</button>
 				</form>
 			</div>
 		);

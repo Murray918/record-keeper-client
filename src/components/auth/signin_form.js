@@ -17,10 +17,10 @@ class SigninForm extends Component {
 		const { handleSubmit, pristine, submitting } = this.props;
 
 		return (
-			<div id="SigninForm" className="container center sign-in-up">
+			<div id="SigninForm" className="auth-wrapper">
 				{this.renderAlert()}
-				<form onSubmit={handleSubmit} className="row center">
-					<div className="center">
+				<form onSubmit={handleSubmit} className="">
+					<div className="single-form-container">
 						<Field
 							label="Username"
 							name="email"
@@ -28,8 +28,6 @@ class SigninForm extends Component {
 							type="text"
 							placeholder=" Enter Email"
 						/>
-					</div>
-					<div className="center">
 						<Field
 							label="Password"
 							name="password"
@@ -37,10 +35,10 @@ class SigninForm extends Component {
 							type="password"
 							placeholder="Enter Password"
 						/>
-					</div>
-
-					<div className="center center-btn">
-						<button type="submit" disabled={pristine || submitting}>
+						<button
+							className="form-button"
+							type="submit"
+							disabled={pristine || submitting}>
 							Sign IN
 						</button>
 					</div>

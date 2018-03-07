@@ -6,7 +6,7 @@ const Search = props => {
 	return (
 		<div id="Search">
 			<form className="twelve" onSubmit={handleSubmit}>
-				<div className="search-wrapper">
+				<div className="form-wrapper">
 					<Field
 						id="search-bar"
 						className=""
@@ -17,7 +17,7 @@ const Search = props => {
 					/>
 					<button
 						id="search-btn"
-						className="button-primary:focus"
+						className="button-primary:focus form-button"
 						type="submit"
 						disabled={pristine || submitting}>
 						SEARCH

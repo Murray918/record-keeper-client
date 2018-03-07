@@ -5,11 +5,36 @@
 #root {
 	color: black;
 }
-.search-wrapper {
+.form-wrapper {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+}
+
+.auth-wrapper {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.single-form-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: auto;
+	background-image: url('../components/images/kara-michelle-554236-unsplash.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center;
+	background-size: cover;
+	padding: auto;
+	margin: 1rem;
+	width: 33rem;
+	height: 39rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
 }
 
 #search-bar {
@@ -18,7 +43,7 @@
 	margin-bottom: 4rem;
 }
 
-#search-btn {
+.form-button {
 	max-width: 14rem;
 	text-align: center;
 	background-color: #f78e80;
@@ -44,7 +69,7 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 .album-container {
 	background-color: white;
@@ -54,7 +79,28 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	text-align: center;
 }
+.form-item {
+	margin-bottom: 2rem;
+}
+.info-wrapper {
+	width: 98%;
+	margin: auto;
+	margin-bottom: 5rem;
+	margin-top: 4rem;
+	padding-top: 3rem;
+	padding-bottom: 1rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+}
 
+.form-container {
+	background-color: white;
+	padding: auto;
+	margin: 1rem;
+	width: 38rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+}
 .album-container img {
 	max-width: 85%;
 }
@@ -193,66 +239,56 @@
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
-	.sign-in-up {
-		padding-top: 13%;
-		margin-top: 12rem;
-		height: 550px;
-		background-image: url('../components/images/kara-michelle-554236-unsplash.jpg');
-		background-repeat: no-repeat;
-		background-attachment: scroll;
-		background-position: center;
-		background-size: cover;
-	}
+}
 
-	#landing-image {
-		position: absolute;
-		left: 0;
-		width: auto;
-		height: auto;
-		max-height: 90vh;
-		max-width: 100%;
-		opacity: 0.2;
-	}
-	#search-bar {
-		width: 80%;
-	}
+#landing-image {
+	position: absolute;
+	left: 0;
+	width: auto;
+	height: auto;
+	max-height: 90vh;
+	max-width: 100%;
+	opacity: 0.2;
+}
+#search-bar {
+	width: 80%;
+}
 
-	#landing-image {
-		position: absolute;
-		left: 0;
-		width: auto;
-		height: auto;
-		max-height: 90vh;
-		max-width: 100%;
-		opacity: 0.2;
-	}
-	#landing-container {
-		position: relative;
-		text-align: center;
-		color: black;
-	}
+#landing-image {
+	position: absolute;
+	left: 0;
+	width: auto;
+	height: auto;
+	max-height: 90vh;
+	max-width: 100%;
+	opacity: 0.2;
+}
+#landing-container {
+	position: relative;
+	text-align: center;
+	color: black;
+}
 
-	#landing-text-one {
-		font-family: 'Biryani', sans-serif;
-		font-size: 1.8rem;
-		position: absolute;
-		top: 6.5rem;
-		left: 1.5em;
-	}
+#landing-text-one {
+	font-family: 'Biryani', sans-serif;
+	font-size: 1.8rem;
+	position: absolute;
+	top: 6.5rem;
+	left: 1.5em;
+}
 
-	#landing-text-two {
-		text-align: right;
-		font-family: 'Biryani', sans-serif;
-		font-size: 2.3rem;
-		position: absolute;
-		top: 37rem;
-		right: 0.8rem;
-	}
+#landing-text-two {
+	text-align: right;
+	font-family: 'Biryani', sans-serif;
+	font-size: 2.3rem;
+	position: absolute;
+	top: 37rem;
+	right: 0.8rem;
+}
 
-	.nav-list {
-		display: flex;
-		justify-content: space-between;
-	}
+.nav-list {
+	display: flex;
+	justify-content: space-between;
 }
 
 /* Larger than Desktop HD */
