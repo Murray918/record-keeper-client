@@ -5,21 +5,28 @@ import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
 
 class AlbumList extends Component {
-	renderRemovedMessage(target) {
+	renderMessage(target) {
+		//dont let user click more than once
 		target.target.disabled = true;
+		//get the neede variables
 		let targetCard = 'user-record :' + target.target.id;
 		let mountPoint = document.createElement('div');
+		//use the variables to append the message to the dom
 		document.getElementById(targetCard).appendChild(mountPoint);
 		ReactDOM.render(
-			<SuccessMessage removedMessage={this.props.removedMessage} />,
+			<SuccessMessage recordMessage={this.props.recordMessage} />,
 			mountPoint
 		);
+		//this remves the message after 5 seconds
+		setTimeout(function() {
+			document.getElementById(targetCard).removeChild(mountPoint);
+		}, 5000);
 	}
 
 	handleAddRecord(targetAlbum) {
 		let album = this.props.searchResults[targetAlbum.target.id];
 		this.props.addRecord(album);
-		this.renderRemovedMessage(targetAlbum);
+		this.renderMessage(targetAlbum);
 	}
 
 	render() {
@@ -54,4 +61,5 @@ class AlbumList extends Component {
 		);
 	}
 }
+
 export default connect(null, actions)(AlbumList);
