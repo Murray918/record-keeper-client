@@ -26,10 +26,7 @@ class AlbumList extends Component {
 		const albums = this.props.searchResults.map((album, key) => {
 			let cardId = 'user-record :' + key;
 			return (
-				<div
-					key={key}
-					id={cardId}
-					className=" album-container columns five u-max-full-">
+				<div key={key} id={cardId} className=" album-container">
 					<h4 className="text-center">{album.artist}</h4>
 					<h6>{album.title}</h6>
 					<img
@@ -42,15 +39,15 @@ class AlbumList extends Component {
 						onClick={this.handleAddRecord.bind(this)}
 						type="click"
 						className="u-pull-right">
-						Add
+						ADD
 					</button>
 				</div>
 			);
 		});
 		return (
-			<div className="container">
-				<div className=" center u-full-width" id="AlbumList">
-					<hr className="u-full-width" />
+			<div>
+				<hr className="u-full-width-max" />
+				<div className="list-wrapper" id="AlbumList">
 					{albums}
 				</div>
 			</div>

@@ -6,52 +6,6 @@
 	color: black;
 }
 
-#Nav li {
-	list-style: none;
-	margin-top: 1.5em;
-}
-
-.nav-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.nav-text {
-}
-
-#landing-container {
-	position: relative;
-	text-align: center;
-	color: black;
-}
-
-#landing-image {
-	position: absolute;
-	left: 0;
-	width: auto;
-	height: auto;
-	max-height: 90vh;
-	max-width: 100%;
-	opacity: 0.2;
-}
-
-#landing-text-one {
-	font-family: 'Biryani', sans-serif;
-	font-size: 1.8em;
-	position: absolute;
-	top: 2.3em;
-	left: 1.5em;
-}
-
-#landing-text-two {
-	text-align: right;
-	font-family: 'Biryani', sans-serif;
-	font-size: 2.3em;
-	position: absolute;
-	bottom: -16.5em;
-	right: 0.8em;
-}
-
 #search-bar {
 	margin: 0.5em;
 	margin-bottom: 2em;
@@ -76,24 +30,20 @@
 	padding-left: 45px;
 }
 
-.sign-in-up {
-	padding-top: 13%;
-	margin-top: 12rem;
-	height: 550px;
-	background-image: url('../components/images/kara-michelle-554236-unsplash.jpg');
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center;
-	background-size: cover;
-}
-
 .search-top {
 	margin-left: 2em;
 }
+.list-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
 .album-container {
 	background-color: white;
-	margin-bottom: 2em;
-	min-width: 250px;
+	padding: 0.3rem;
+	margin: 2rem;
+	max-width: 250px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	text-align: center;
 }
@@ -103,8 +53,183 @@
 }
 
 .album-container button {
-	max-height: 2.5em;
-	max-width: 3.5em;
-	margin: 1em;
-	text-align: left;
+	text-align: center;
+	max-height: 3.4rem;
+	min-width: 5.5rem;
+	padding: 0.4rem;
+	margin: 1rem;
+}
+
+#Nav li {
+	list-style: none;
+	margin-top: 1.5em;
+	height: 3vh;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+	#landing-container {
+		overflow: visible;
+	}
+
+	#landing-image {
+		opacity: 0.25;
+		position: absolute;
+		left: -20rem;
+		width: 100vh;
+	}
+
+	#landing-image {
+	}
+
+	#landing-text-one {
+		position: absolute;
+		left: -5rem;
+		top: -3rem;
+		font-size: 2rem;
+		opacity: 0.68;
+	}
+
+	#landing-text-two {
+		font-size: 2rem;
+		text-align: right;
+		position: absolute;
+		right: -4.8rem;
+		opacity: 0.7;
+		top: 26rem;
+	}
+}
+
+.nav-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#Dropdown {
+	position: absolute;
+	right: 2.5rem;
+	top: 6rem;
+	flex-direction: column;
+	z-index: 1;
+}
+.item {
+	padding: 2rem;
+}
+.menu {
+	color: red;
+	text-align: center;
+	margin: 0;
+	border: 1px solid #dbebf9;
+	border-radius: 0.3rem;
+	background-color: #dbebf9;
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+	#landing-image {
+		/* height: 40vh; */
+		width: 200%;
+	}
+
+	#landing-image {
+		background-color: #ffffff;
+		opacity: 0.25;
+		position: absolute;
+		left: -20rem;
+		width: 110vh;
+	}
+
+	#landing-container {
+		/* position: static; */
+		overflow: visible;
+	}
+
+	#landing-text-one {
+		position: absolute;
+		left: -10rem;
+		font-size: 2rem;
+		opacity: 0.68;
+	}
+
+	#landing-text-two {
+		font-size: 2rem;
+		text-align: right;
+		position: absolute;
+		right: -10.8rem;
+		opacity: 0.7;
+		top: 26rem;
+	}
+
+	.nav-text {
+	}
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+	.sign-in-up {
+		padding-top: 13%;
+		margin-top: 12rem;
+		height: 550px;
+		background-image: url('../components/images/kara-michelle-554236-unsplash.jpg');
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		background-position: center;
+		background-size: cover;
+	}
+
+	#landing-image {
+		position: absolute;
+		left: 0;
+		width: auto;
+		height: auto;
+		max-height: 90vh;
+		max-width: 100%;
+		opacity: 0.2;
+	}
+
+	#landing-image {
+		position: absolute;
+		left: 0;
+		width: auto;
+		height: auto;
+		max-height: 90vh;
+		max-width: 100%;
+		opacity: 0.2;
+	}
+	#landing-container {
+		position: relative;
+		text-align: center;
+		color: black;
+	}
+
+	#landing-text-one {
+		font-family: 'Biryani', sans-serif;
+		font-size: 1.8rem;
+		position: absolute;
+		top: 2.3em;
+		left: 1.5em;
+	}
+
+	#landing-text-two {
+		text-align: right;
+		font-family: 'Biryani', sans-serif;
+		font-size: 2.3rem;
+		position: absolute;
+		bottom: -16.5em;
+		right: 0.8em;
+	}
+
+	.nav-list {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
 }

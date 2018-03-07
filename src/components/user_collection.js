@@ -17,7 +17,6 @@ class UserCollection extends Component {
 	}
 
 	handleRemoveRecord(targetRecord) {
-		this.disabled = true;
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
 		this.renderRemovedMessage(targetRecord);
@@ -27,31 +26,24 @@ class UserCollection extends Component {
 		const collection = this.props.userCollection.map((record, key) => {
 			let cardId = 'user-record :' + key;
 			return (
-				<div
-					key={key}
-					id={cardId}
-					className="album-container columns five u-max-full-">
+				<div key={key} id={cardId} className="album-container">
 					<h4 className="text-center">{record.artist}</h4>
 					<h6>{record.title}</h6>
-					<img
-						className="u-max-full"
-						alt="album artwok here"
-						src={record.imageMedium}
-					/>
+					<img className="" alt="album artwok here" src={record.imageMedium} />
 					<button
 						id={key}
 						onClick={this.handleRemoveRecord.bind(this)}
 						type="click"
-						className="columns u-full-width center">
-						remove
+						className="center">
+						REMOVE
 					</button>
 				</div>
 			);
 		});
 		return (
-			<div className="container">
-				<div className="center u-full-width" id="UserList">
-					<hr className="u-full-width" />
+			<div>
+				<hr className="u-max-width" />
+				<div className="list-wrapper" id="UserList">
 					{collection}
 				</div>
 			</div>

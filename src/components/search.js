@@ -15,14 +15,14 @@ class Search extends Component {
 	render() {
 		if (this.props.searchResults === undefined || null || '') {
 			return (
-				<div id="Search" className="container">
+				<div id="Search">
 					<SearchForm onSubmit={this.handleSubmit.bind(this)} />
 					<Loading />
 				</div>
 			);
 		}
 		return (
-			<div id="Search" className="container">
+			<div id="Search">
 				<SearchForm onSubmit={this.handleSubmit.bind(this)} />
 				<AlbumList searchResults={this.props.searchResults} />
 			</div>

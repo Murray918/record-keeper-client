@@ -12,6 +12,12 @@ class Header extends Component {
 	state = {
 		menu: false
 	};
+
+	componentWillMount() {
+		this.setState({
+			menu: false
+		});
+	}
 	renderLinks() {
 		if (this.props.authenticated) {
 			return [
@@ -22,8 +28,8 @@ class Header extends Component {
 				</li>,
 				<li key={2} className="nav-text">
 					<NavLink
-						className="button"
-						onClick={this.handleDropdown.bind(this)}
+						className="item button"
+						onMouseEnter={this.handleShowDropdown.bind(this)}
 						to="#">
 						{localStorage.getItem('user')}
 					</NavLink>
@@ -41,13 +47,16 @@ class Header extends Component {
 		}
 	}
 
-	handleDropdown() {
+	handleShowDropdown() {
 		if (this.state.menu === false) {
 			console.log(this.state.menu);
 			this.setState({
 				menu: true
 			});
-		} else if (this.state.menu === true) {
+		}
+	}
+	handleHideDropdown() {
+		if (this.state.menu === true) {
 			console.log(this.state.menu);
 			this.setState({
 				menu: false
@@ -59,15 +68,18 @@ class Header extends Component {
 		return (
 			<div className="container">
 				<nav id="Nav">
-					<ul className="">
+					<ul className="nav-list">
 						<li key={0} className="nav-text">
 							<NavLink to="/">Home</NavLink>
 						</li>
 						{this.renderLinks()}
-						<Dropdown menu={this.state.menu} />
+						<Dropdown
+							menu={this.state.menu}
+							onMouseLeave={this.handleHideDropdown.bind(this)}
+						/>
 					</ul>
 				</nav>
-				<div className="container">{this.props.children}</div>
+				<div>{this.props.children}</div>
 			</div>
 		);
 	}

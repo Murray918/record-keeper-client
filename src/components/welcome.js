@@ -6,7 +6,7 @@ export default () => {
 		<div id="landing landing-container">
 			<img
 				id="landing-image"
-				className="u-full-max"
+				className="u-full-width"
 				src={landing}
 				alt="records"
 			/>
