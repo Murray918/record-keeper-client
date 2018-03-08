@@ -191,6 +191,7 @@ export function removeRecord(record) {
 				}
 			})
 			.then(response => {
+				console.log(response.data);
 				dispatch({
 					type: REMOVE_RECORD,
 					payload: response.data

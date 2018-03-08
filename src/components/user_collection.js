@@ -3,23 +3,48 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
+import { mapValues } from 'lodash';
 
 class UserCollection extends Component {
+	state = {
+		recordMessage: null
+	};
+	componentDidUpdate() {
+		// let children = document.getElementById('UserList').children;
+		// mapValues(children, child => {
+		// 	if (child.lastElementChild.disabled === true) {
+		// 		child.lastElementChild.disabled = false;
+		// 		console.log(child.lastElementChild);
+		// 	}
+		// });
+		console.log('PARTY');
+	}
+
 	renderRemovedMessage(target) {
 		target.target.disabled = true;
 		let targetCard = 'user-record :' + target.target.id;
 		let mountPoint = document.createElement('div');
 		document.getElementById(targetCard).appendChild(mountPoint);
 		ReactDOM.render(
-			<SuccessMessage removedMessage={this.props.removedMessage} />,
+			<SuccessMessage removedMessage={this.state.recordMessage} />,
 			mountPoint
 		);
+		setTimeout(function() {
+			document.getElementById(targetCard).remove();
+		}, 8000);
 	}
 
 	handleRemoveRecord(targetRecord) {
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
-		this.renderRemovedMessage(targetRecord);
+		//++++++++++++++++++++++++++++++++++++++
+		if (this.props.recordMessage !== null) {
+			this.setState({
+				removedMessage: this.props.recordMessage
+			});
+			console.log(this.state.recordMessage);
+			this.renderRemovedMessage(targetRecord);
+		}
 	}
 
 	render() {
@@ -53,7 +78,7 @@ class UserCollection extends Component {
 
 function mapStateToProps(state) {
 	return {
-		removedMessage: state.records.removedMessage
+		removedMessage: state.records.recordMessage
 	};
 }
 

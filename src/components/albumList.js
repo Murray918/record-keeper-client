@@ -3,14 +3,25 @@ import * as actions from '../actions';
 import { connect } from 'react-redux';
 import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
+import { mapValues } from 'lodash';
 
 class AlbumList extends Component {
+	componentDidUpdate() {
+		let children = document.getElementById('AlbumList').children;
+		mapValues(children, child => {
+			if (child.lastElementChild.disabled === true) {
+				child.lastElementChild.disabled = false;
+			}
+		});
+	}
+
 	renderMessage(target) {
 		//dont let user click more than once
 		target.target.disabled = true;
 		//get the neede variables
 		let targetCard = 'user-record :' + target.target.id;
 		let mountPoint = document.createElement('div');
+
 		//use the variables to append the message to the dom
 		document.getElementById(targetCard).appendChild(mountPoint);
 		ReactDOM.render(
@@ -20,7 +31,7 @@ class AlbumList extends Component {
 		//this remves the message after 5 seconds
 		setTimeout(function() {
 			document.getElementById(targetCard).removeChild(mountPoint);
-		}, 5000);
+		}, 15000);
 	}
 
 	handleAddRecord(targetAlbum) {
