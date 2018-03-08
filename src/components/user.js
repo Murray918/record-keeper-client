@@ -21,7 +21,7 @@ class User extends Component {
 			<div id="UserCollection" className="container">
 				<UserCollection
 					userCollection={this.props.userCollection}
-					removedMessage={this.props.renderRemovedMessage}
+					recordMessage={this.props.recordMessage}
 				/>
 			</div>
 		);
@@ -31,7 +31,7 @@ class User extends Component {
 function mapStateToProps(state) {
 	return {
 		userCollection: state.records.userCollection,
-		removedMessage: state.user.removedMessage
+		recordMessage: state.records.recordMessage
 	};
 }
 

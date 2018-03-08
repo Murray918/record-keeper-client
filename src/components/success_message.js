@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 export default class SuccessMessage extends Component {
+	componentDidMount() {
+		console.log(this.props);
+	}
 	render() {
-		if (!this.props.recordMessage) {
+		if (this.props.removeMessage === null) {
 			return (
 				<div className="alert alert-success u-full-width">
 					<strong> SUCCESS: </strong>
@@ -13,7 +16,7 @@ export default class SuccessMessage extends Component {
 		return (
 			<div className="alert alert-success u-full-width">
 				<strong> SUCCESS: </strong>
-				{this.props.recordMessage}
+				{this.props.removedMessage}
 			</div>
 		);
 	}
