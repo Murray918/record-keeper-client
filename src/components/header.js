@@ -9,7 +9,7 @@ class Header extends Component {
 		menu: false
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 		this.setState({
 			menu: false
 		});
