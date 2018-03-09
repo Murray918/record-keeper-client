@@ -5,14 +5,15 @@ import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
 
 class UserCollection extends Component {
-	renderRemovedMessage(target) {
+	renderMessage(target) {
+		target.target.disabled = true;
 		let targetCard = 'user-record :' + target.target.id;
 		let mountPoint = document.createElement('div');
 		document.getElementById(targetCard).appendChild(mountPoint);
 		setTimeout(() => {
 			console.log(this.props);
 			ReactDOM.render(
-				<SuccessMessage removedMessage={this.props.recordMessage} />,
+				<SuccessMessage recordMessage={this.props.recordMessage} />,
 				mountPoint
 			);
 		}, 100);
@@ -23,10 +24,9 @@ class UserCollection extends Component {
 	}
 
 	handleRemoveRecord(targetRecord) {
-		targetRecord.target.disabled = true;
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
-		this.renderRemovedMessage(targetRecord);
+		this.renderMessage(targetRecord);
 	}
 
 	render() {
