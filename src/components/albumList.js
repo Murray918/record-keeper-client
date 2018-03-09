@@ -28,10 +28,6 @@ class AlbumList extends Component {
 			<SuccessMessage recordMessage={this.props.recordMessage} />,
 			mountPoint
 		);
-		//this remves the message after 5 seconds
-		setTimeout(function() {
-			document.getElementById(targetCard).removeChild(mountPoint);
-		}, 15000);
 	}
 
 	handleAddRecord(targetAlbum) {

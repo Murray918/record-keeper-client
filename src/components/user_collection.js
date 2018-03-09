@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import SuccessMessage from './success_message';
 import ReactDOM from 'react-dom';
-import { mapValues } from 'lodash';
 
 class UserCollection extends Component {
 	renderRemovedMessage(target) {
@@ -27,7 +26,6 @@ class UserCollection extends Component {
 		targetRecord.target.disabled = true;
 		let record = this.props.userCollection[targetRecord.target.id];
 		this.props.removeRecord(record);
-		//++++++++++++++++++++++++++++++++++++++
 		this.renderRemovedMessage(targetRecord);
 	}
 
