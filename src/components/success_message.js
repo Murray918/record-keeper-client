@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
 export default class SuccessMessage extends Component {
+	componentWillMount() {
+		console.log(this.props);
+	}
 	render() {
-		if (this.props.recordMessage === undefined) {
+		if (this.props.recordMessage.record) {
 			return (
-				<div className="alert alert-success u-full-width">
+				<div className="u-full-width">
 					<strong> SUCCESS: </strong>
-					<h6>Record Added</h6>
+					{this.props.recordMessage.Success}
 				</div>
 			);
 		}
 		return (
-			<div className="alert alert-success u-full-width">
+			<div className="u-full-width">
 				<strong> SUCCESS: </strong>
 				{this.props.recordMessage}
 			</div>

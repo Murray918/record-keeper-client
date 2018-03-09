@@ -24,10 +24,12 @@ class AlbumList extends Component {
 
 		//use the variables to append the message to the dom
 		document.getElementById(targetCard).appendChild(mountPoint);
-		ReactDOM.render(
-			<SuccessMessage recordMessage={this.props.recordMessage} />,
-			mountPoint
-		);
+		setTimeout(() => {
+			ReactDOM.render(
+				<SuccessMessage recordMessage={this.props.recordMessage} />,
+				mountPoint
+			);
+		}, 100);
 		setTimeout(function() {
 			document.getElementById(targetCard).remove();
 		}, 1000);
