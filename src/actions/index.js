@@ -16,7 +16,7 @@ import {
 	DROPDOWN_HIDE
 } from './types';
 //localhost url
-const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = 'https://young-journey-11063.herokuapp.com/';
 
 export function signinUser({ email, password }) {
 	return function(dispatch) {
