@@ -24,7 +24,10 @@ class Search extends Component {
 		return (
 			<div id="Search">
 				<SearchForm onSubmit={this.handleSubmit.bind(this)} />
-				<AlbumList searchResults={this.props.searchResults} />
+				<AlbumList
+					searchResults={this.props.searchResults}
+					recordMessage={this.props.recordMessage}
+				/>
 			</div>
 		);
 	}
@@ -32,7 +35,8 @@ class Search extends Component {
 
 function mapStateToProps(state) {
 	return {
-		searchResults: state.records.searchResults
+		searchResults: state.records.searchResults,
+		recordMessage: state.records.recordMessage
 	};
 }
 

@@ -8,7 +8,7 @@ import {
 export default function recordReducer(state = {}, action) {
 	switch (action.type) {
 		case ADD_RECORD:
-			return { ...state, album: action.payload };
+			return { ...state, recordMessage: action.payload };
 		case REMOVE_RECORD:
 			return { ...state, recordMessage: action.payload };
 		case SEARCH:

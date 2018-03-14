@@ -235,12 +235,12 @@ export function addRecord(album) {
 					authorization: localStorage.getItem('token')
 				}
 			})
-			.then(response => {});
-		//we need to have a fetch with our auth and our record to add and a user email
-		console.log(album);
-		dispatch({
-			type: ADD_RECORD,
-			payload: album
-		});
+			.then(response => {
+				console.log(album);
+				dispatch({
+					type: ADD_RECORD,
+					payload: response.data
+				});
+			});
 	};
 }
