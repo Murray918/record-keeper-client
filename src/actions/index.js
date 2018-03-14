@@ -230,7 +230,7 @@ export function addRecord(album) {
 		};
 
 		axios
-			.post(`${ROOT_URL}/addrecord`, postData, {
+			.post(`${ROOT_URL}addrecord`, postData, {
 				headers: {
 					authorization: localStorage.getItem('token')
 				}
