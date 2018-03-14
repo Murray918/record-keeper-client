@@ -107,7 +107,7 @@ export function changeEmail({ newEmail, newEmailConfirm }) {
 export function signupUser({ email, password, passwordConfirmation }) {
 	return function(dispatch) {
 		axios
-			.post(`${ROOT_URL}/signup`, { email, password, passwordConfirmation })
+			.post(`${ROOT_URL}signup`, { email, password, passwordConfirmation })
 			.then(response => {
 				dispatch({
 					type: AUTH_USER
@@ -132,7 +132,7 @@ export function authError(error) {
 export function fetchData() {
 	return function(dispatch) {
 		axios
-			.get(`${ROOT_URL}/spotify/album/Bitches%20Brew`, {
+			.get(`${ROOT_URL}spotify/album/Bitches%20Brew`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -148,7 +148,7 @@ export function fetchData() {
 export function search(value) {
 	return function(dispatch) {
 		axios
-			.get(`${ROOT_URL}/spotify/album/${value.query}`, {
+			.get(`${ROOT_URL}spotify/album/${value.query}`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -165,7 +165,7 @@ export function viewUserCollection() {
 		let email = localStorage.getItem('user');
 
 		axios
-			.get(`${ROOT_URL}/viewrecords/${email}`, {
+			.get(`${ROOT_URL}viewrecords/${email}`, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -185,7 +185,7 @@ export function removeRecord(record) {
 		};
 
 		axios
-			.post(`${ROOT_URL}/removerecord`, postData, {
+			.post(`${ROOT_URL}removerecord`, postData, {
 				headers: {
 					authorization: localStorage.getItem('token')
 				}
@@ -208,7 +208,7 @@ export function changePassword({ newPassword, newPasswordConfirmation }) {
 			newPasswordConfirmation
 		};
 		axios
-			.post(`${ROOT_URL}/updateuserpassword`, postData, {
+			.post(`${ROOT_URL}updateuserpassword`, postData, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -230,7 +230,7 @@ export function addRecord(album) {
 		};
 
 		axios
-			.post(`${ROOT_URL}/addrecord`, postData, {
+			.post(`${ROOT_URL}addrecord`, postData, {
 				headers: {
 					authorization: localStorage.getItem('token')
 				}
