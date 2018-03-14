@@ -16,12 +16,12 @@ import {
 	DROPDOWN_HIDE
 } from './types';
 //localhost url
-const ROOT_URL = 'https://young-journey-11063.herokuapp.com';
+const ROOT_URL = 'https://young-journey-11063.herokuapp.com/';
 
 export function signinUser({ email, password }) {
 	return function(dispatch) {
 		// submit email and password to server
-		const request = axios.post(`${ROOT_URL}/signin`, { email, password });
+		const request = axios.post(`${ROOT_URL}signin`, { email, password });
 		request
 			.then(response => {
 				// -Save the JWT token
@@ -230,7 +230,7 @@ export function addRecord(album) {
 		};
 
 		axios
-			.post(`${ROOT_URL}addrecord`, postData, {
+			.post(`${ROOT_URL}/addrecord`, postData, {
 				headers: {
 					authorization: localStorage.getItem('token')
 				}
