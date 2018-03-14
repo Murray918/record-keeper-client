@@ -21,7 +21,7 @@ const ROOT_URL = 'https://young-journey-11063.herokuapp.com';
 export function signinUser({ email, password }) {
 	return function(dispatch) {
 		// submit email and password to server
-		const request = axios.post(`${ROOT_URL}/signin`, { email, password });
+		const request = axios.post(`${ROOT_URL}signin`, { email, password });
 		request
 			.then(response => {
 				// -Save the JWT token
@@ -90,7 +90,7 @@ export function changeEmail({ newEmail, newEmailConfirm }) {
 			newEmailConfirm
 		};
 		axios
-			.post(`${ROOT_URL}/updateuseremail`, postData, {
+			.post(`${ROOT_URL}updateuseremail`, postData, {
 				headers: { authorization: localStorage.getItem('token') }
 			})
 			.then(response => {
@@ -107,7 +107,7 @@ export function changeEmail({ newEmail, newEmailConfirm }) {
 export function signupUser({ email, password, passwordConfirmation }) {
 	return function(dispatch) {
 		axios
-			.post(`${ROOT_URL}/signup`, { email, password, passwordConfirmation })
+			.post(`${ROOT_URL}signup`, { email, password, passwordConfirmation })
 			.then(response => {
 				dispatch({
 					type: AUTH_USER
