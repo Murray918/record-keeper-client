@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import SuccessMessage from './success_message';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+import SuccessMessage from "./success_message";
+import ReactDOM from "react-dom";
 
 class UserCollection extends Component {
+	//TODO: render message should be its own stateless functional component
 	renderMessage(target) {
 		target.target.disabled = true;
-		let targetCard = 'user-record :' + target.target.id;
-		let mountPoint = document.createElement('div');
+		let targetCard = "user-record :" + target.target.id;
+		let mountPoint = document.createElement("div");
+		// TODO: 'do not directly manipulate the dom that is not waht react is about!!!!!'
 		document.getElementById(targetCard).appendChild(mountPoint);
 		setTimeout(() => {
 			console.log(this.props);
@@ -17,7 +19,7 @@ class UserCollection extends Component {
 				mountPoint
 			);
 		}, 100);
-
+		//TODO: this should be pulled out and refactored for async await
 		setTimeout(function() {
 			document.getElementById(targetCard).remove();
 		}, 1000);
@@ -31,17 +33,22 @@ class UserCollection extends Component {
 
 	render() {
 		const collection = this.props.userCollection.map((record, key) => {
-			let cardId = 'user-record :' + key;
+			let cardId = "user-record :" + key;
 			return (
 				<div key={key} id={cardId} className="album-container">
 					<h4 className="text-center">{record.artist}</h4>
 					<h6>{record.title}</h6>
-					<img className="" alt="album artwok here" src={record.imageMedium} />
+					<img
+						className=""
+						alt="album artwok here"
+						src={record.imageMedium}
+					/>
 					<button
 						id={key}
 						onClick={this.handleRemoveRecord.bind(this)}
 						type="click"
-						className="button-primary:focus form-button">
+						className="button-primary:focus form-button"
+					>
 						REMOVE
 					</button>
 				</div>
@@ -58,10 +65,7 @@ class UserCollection extends Component {
 	}
 }
 
-// function mapStateToProps(state) {
-// 	return {
-// 		recordMessage: state.records.recordMessage
-// 	};
-// }
-
-export default connect(null, actions)(UserCollection);
+export default connect(
+	null,
+	actions
+)(UserCollection);
